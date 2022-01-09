@@ -3,19 +3,13 @@ import { SWRConfig } from 'swr'
 
 import fetcher from '../utils/fetcher'
 
+import Footer from './Footer'
 import Header from './Header'
 
-const Container = styled.div`
-  align-items: center;
-  display: flex;
-  justify-content: center;
-`
+const Container = styled.div``
 
 const Body = styled.div`
-  align-items: center;
-  display: flex;
-  justify-content: center;
-  max-width: 600px;
+  flex: 1 0 100%;
 `
 
 const Layout: React.FC = ({ children }) => (
@@ -27,6 +21,7 @@ const Layout: React.FC = ({ children }) => (
     <Container>
       <Header />
       <Body>{children}</Body>
+      <Footer />
     </Container>
   </SWRConfig>
 )

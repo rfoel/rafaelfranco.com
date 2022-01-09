@@ -35,27 +35,3 @@ export interface Label {
   name: string
   color: string
 }
-
-export interface Contributions {
-  viewer: Viewer
-}
-
-export interface Viewer {
-  contributionsCollection: ContributionsCollection
-}
-
-export interface ContributionsCollection {
-  contributionCalendar: ContributionCalendar
-}
-
-export interface ContributionCalendar {
-  weeks: Week[]
-}
-
-export interface Week {
-  contributionDays: ContributionDay[]
-}
-
-export interface ContributionDay {
-  color: string
-}

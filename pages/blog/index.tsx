@@ -40,7 +40,7 @@ const Posts = () => {
   )
 }
 
-const BlogIndex = (props) => {
+const BlogIndex = (props: { fallback: Record<string, unknown> }) => {
   return (
     <SWRConfig value={{ fallback: props.fallback }}>
       <Posts />

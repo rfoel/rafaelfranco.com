@@ -1,13 +1,13 @@
 import dayjs from 'dayjs'
 import Markdown from 'markdown-to-jsx'
 import type { NextApiRequest } from 'next'
+import Image from 'next/image'
 import { useRouter } from 'next/router'
 import React from 'react'
 import readingTime from 'reading-time'
 import styled from 'styled-components'
-import 'dayjs/locale/pt-br'
 import { SWRConfig } from 'swr'
-import Image from 'next/image'
+import 'dayjs/locale/pt-br'
 
 import Badge from '../../components/Badge'
 import Code from '../../components/Code'
@@ -28,18 +28,17 @@ const Article = styled.article`
 const overrides = {
   code: Code,
   p: ({ children }: { children: React.ReactNode }) => <div>{children}</div>,
-  img: ({ src, alt, ...rest }) =>
-    console.log(rest) || (
-      <Image
-        alt={alt}
-        src={src}
-        blurDataURL={src}
-        placeholder="blur"
-        layout="responsive"
-        width="100%"
-        height="100%"
-      />
-    ),
+  img: ({ src, alt }: { src: string; alt: string }) => (
+    <Image
+      alt={alt}
+      src={src}
+      blurDataURL={src}
+      placeholder="blur"
+      layout="responsive"
+      width="100%"
+      height="100%"
+    />
+  ),
 }
 
 const Post = () => {
@@ -75,7 +74,7 @@ const Post = () => {
   )
 }
 
-const BlogPost = (props) => {
+const BlogPost = (props: { fallback: Record<string, unknown> }) => {
   return (
     <SWRConfig value={{ fallback: props.fallback }}>
       <Post />

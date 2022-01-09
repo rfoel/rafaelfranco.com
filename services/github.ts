@@ -1,11 +1,6 @@
 import { gql, request } from 'graphql-request'
 
-import type {
-  ContributionCalendar,
-  Contributions,
-  Issues,
-  Post,
-} from '../types'
+import type { Issues, Post } from '../types'
 
 export const searchIssues = async (): Promise<Post[]> => {
   const query = gql`
@@ -66,38 +61,4 @@ export const searchIssue = async (slug: string): Promise<Post> => {
   )
 
   return post
-}
-
-export const getContributionDays = async (
-  from: string,
-  to: string,
-): Promise<string[]> => {
-  console.log({ from, to })
-  const query = gql`
-    query ($from: DateTime!, $to: DateTime!) {
-      viewer {
-        contributionsCollection(from: $from, to: $to) {
-          contributionCalendar {
-            weeks {
-              contributionDays {
-                color
-              }
-            }
-          }
-        }
-      }
-    }
-  `
-
-  const data = await request<Contributions>(
-    'https://api.github.com/graphql',
-    query,
-    { from, to },
-    { Authorization: `Bearer ${process.env.GITHUB_PERSONAL_ACCESS_TOKEN}` },
-  )
-
-  return data.viewer.contributionsCollection.contributionCalendar.weeks.flatMap(
-    (week) =>
-      week.contributionDays.map((contributionDay) => contributionDay.color),
-  )
 }
