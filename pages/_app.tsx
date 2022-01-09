@@ -3,7 +3,8 @@ import Head from 'next/head'
 
 import Layout from '../components/Layout'
 
-import '../index.css'
+import '../static/index.css'
+import '../static/dracula.css'
 
 const App = ({ Component, pageProps }: AppProps) => {
   return (

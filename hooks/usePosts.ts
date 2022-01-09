@@ -1,5 +1,7 @@
 import useSWR from 'swr'
 
-const usePosts = () => useSWR('/api/blog')
+import { Post } from '../types'
+
+const usePosts = () => useSWR<Post[]>('/api/blog')
 
 export default usePosts

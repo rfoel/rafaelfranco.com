@@ -12,3 +12,17 @@ body,
   padding: 0;
   width: 100%;
 }
+
+*,
+::before,
+::after {
+  box-sizing: border-box;
+}
+
+::-moz-selection {
+  background: #ff596a;
+}
+
+::selection {
+  background: #ff596a;
+}
