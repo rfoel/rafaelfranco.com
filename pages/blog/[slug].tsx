@@ -30,7 +30,7 @@ const InlineCode = styled.code`
 
 const Labels = styled.div`
   > * {
-    margin-right: 4px;
+    margin-right: 8px;
   }
 `
 

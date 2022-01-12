@@ -8,14 +8,17 @@ import usePosts from '../../hooks/usePosts'
 import { searchIssues } from '../../services/github'
 import { Post } from '../../types'
 
-const Container = styled.div``
+const Container = styled.div`
+  width: 100%;
+`
 
 const Thumbnail = styled.div`
-  border: 1px solid #ff596a;
-  box-shadow: 0.25rem 0.25rem #ff596a;
+  border: 1px solid var(--red);
+  box-shadow: 0.25rem 0.25rem var(--red);
   cursor: pointer;
   margin-bottom: 16px;
   padding: 16px;
+  width: 100%;
 `
 
 const Posts = () => {
