@@ -4,10 +4,10 @@ const Logo = () => (
   <Typed
     backDelay={1000}
     backSpeed={50}
+    loop
     showCursor={false}
     strings={['Rafael Franco', 'rfoel.dev']}
     typeSpeed={50}
-    loop
   />
 )
 
