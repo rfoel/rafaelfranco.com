@@ -3,13 +3,10 @@ import slugify from 'slugify'
 import styled from 'styled-components'
 import { SWRConfig } from 'swr'
 
+import PostHeader from '../../components/PostHeader'
 import usePosts from '../../hooks/usePosts'
 import { searchIssues } from '../../services/github'
-
-type Post = {
-  title: string
-  createdAt: string
-}
+import { Post } from '../../types'
 
 const Container = styled.div``
 
@@ -18,6 +15,7 @@ const Thumbnail = styled.div`
   box-shadow: 0.25rem 0.25rem #ff596a;
   cursor: pointer;
   margin-bottom: 16px;
+  padding: 16px;
 `
 
 const Posts = () => {
@@ -30,8 +28,7 @@ const Posts = () => {
         return (
           <Link key={slug} href={`blog/${slug}`}>
             <Thumbnail>
-              <h2>{post.title}</h2>
-              {post.createdAt}
+              <PostHeader {...post} />
             </Thumbnail>
           </Link>
         )

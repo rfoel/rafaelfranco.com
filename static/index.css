@@ -5,11 +5,10 @@ body,
   display: flex;
   flex-grow: 1;
   flex-direction: column;
-  font-size: 16px;
+  font-size: 18px;
   font-family: 'Source Code Pro', monospace;
   margin: 0;
   min-height: 100%;
-  padding: 0;
   width: 100%;
 }
 
@@ -20,9 +19,17 @@ body,
 }
 
 ::-moz-selection {
-  background: #ff596a;
+  background: var(--red);
 }
 
 ::selection {
-  background: #ff596a;
+  background: var(--red);
+}
+
+:root {
+  --blue: #11269c;
+  --light: #eeeeee;
+  --muted: #666;
+  --pink: #ff94b8;
+  --red: #ff596a;
 }

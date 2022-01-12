@@ -8,8 +8,9 @@ export const searchIssues = async (): Promise<Post[]> => {
       search(first: 10, query: "repo:rfoel/rfoel.dev label:blog", type: ISSUE) {
         nodes {
           ... on Issue {
-            title
+            bodyText
             createdAt
+            title
           }
         }
       }
@@ -38,8 +39,8 @@ export const searchIssue = async (slug: string): Promise<Post> => {
             ... on Issue {
               title
               body
-              bodyText
               createdAt
+              bodyText
               labels(first: 5) {
                 nodes {
                   name
