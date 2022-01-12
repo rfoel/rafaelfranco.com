@@ -1,19 +1,20 @@
 import styled from 'styled-components'
 
-const Container = styled.div`
-  align-items: center;
-  display: flex;
-  justify-content: center;
-`
+import Anchor from '../components/Anchor'
 
-const Title = styled.h1`
-  color: #1e31e3;
+const Container = styled.div`
+  align-items: flex-start;
+  display: flex;
+  flex-direction: column;
 `
 
 const Index = () => {
   return (
     <Container>
-      <Title>rfoel.dev</Title>
+      <p>Rafael Franco, engenheiro de software na Lemon Energia.</p>
+      <Anchor href="https://github.com/rfoel">github</Anchor>
+      <Anchor href="https://linkedin.com/in/rfoel">linkedin</Anchor>
+      <Anchor href="https://twitter.com/rfoel">twitter</Anchor>
     </Container>
   )
 }
