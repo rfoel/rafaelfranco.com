@@ -21,7 +21,7 @@ export const searchIssues = async (): Promise<Post[]> => {
     'https://api.github.com/graphql',
     query,
     {},
-    { Authorization: `Bearer ${process.env.GITHUB_PERSONAL_ACCESS_TOKEN}` },
+    { Authorization: `Bearer ${process.env.PERSONAL_ACCESS_TOKEN}` },
   )
 
   return data.search.nodes as unknown as Post[]
@@ -53,7 +53,7 @@ export const searchIssue = async (slug: string): Promise<Post> => {
       }
     `,
     { query },
-    { Authorization: `Bearer ${process.env.GITHUB_PERSONAL_ACCESS_TOKEN}` },
+    { Authorization: `Bearer ${process.env.PERSONAL_ACCESS_TOKEN}` },
   )
 
   const post = data.search.nodes[0] as unknown as Post
