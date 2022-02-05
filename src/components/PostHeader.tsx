@@ -1,8 +1,11 @@
 import dayjs from 'dayjs'
 import readingTime from 'reading-time'
 import styled from 'styled-components'
+import 'dayjs/locale/pt-br'
 
 import { Post } from '../types'
+
+dayjs.locale('pt-br')
 
 const Header = styled.div`
   width: 100%;

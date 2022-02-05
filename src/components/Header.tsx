@@ -9,7 +9,7 @@ const Container = styled.div`
   background-color: #ffffff;
   display: flex;
   justify-content: center;
-  margin-bottom: 32px;
+  max-width: 700px;
   padding: 32px;
   width: 100%;
 `
@@ -17,14 +17,10 @@ const Container = styled.div`
 const Nav = styled.nav`
   display: grid;
   justify-content: center;
-  grid-template-columns: 1fr repeat(3, fit-content(50px));
-  grid-gap: 20px;
-  justify-items: end;
-  max-width: 700px;
+  grid-template-columns: 1fr repeat(3, auto);
   width: 100%;
 
-  > :first-child {
-    grid-column: 1 / 2;
+  :first-child {
     justify-self: start;
   }
 `
@@ -39,9 +35,6 @@ const Header = () => {
           <Anchor>
             <Logo />
           </Anchor>
-        </Link>
-        <Link href="/">
-          <Anchor active={router.pathname === '/'}>Início</Anchor>
         </Link>
         <Link href="/blog">
           <Anchor active={router.pathname.includes('/blog')}>Blog</Anchor>
