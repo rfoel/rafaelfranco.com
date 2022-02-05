@@ -1,3 +1,15 @@
+# [2.0.0](https://github.com/rfoel/rfoel.dev/compare/v1.1.1...v2.0.0) (2022-02-05)
+
+
+### Features
+
+* use serverless-stack as infra ([c6dfb4d](https://github.com/rfoel/rfoel.dev/commit/c6dfb4d44a07b463d55ae1142772bf08e2f8f390))
+
+
+### BREAKING CHANGES
+
+* drop vercel to use serverless-stack
+
 ## [1.1.1](https://github.com/rfoel/rfoel.dev/compare/v1.1.0...v1.1.1) (2022-01-12)
 
 
