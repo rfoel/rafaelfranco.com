@@ -1,3 +1,10 @@
+## [2.0.1](https://github.com/rfoel/rfoel.dev/compare/v2.0.0...v2.0.1) (2022-02-07)
+
+
+### Bug Fixes
+
+* display only open issues for blog posts ([1d78977](https://github.com/rfoel/rfoel.dev/commit/1d78977171140cfe76f678736f6d68990d9b580f))
+
 # [2.0.0](https://github.com/rfoel/rfoel.dev/compare/v1.1.1...v2.0.0) (2022-02-05)
 
 
