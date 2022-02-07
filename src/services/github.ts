@@ -5,7 +5,11 @@ import type { Issues, Post } from '../types'
 export const searchIssues = async (): Promise<Post[]> => {
   const query = gql`
     query {
-      search(first: 10, query: "repo:rfoel/rfoel.dev label:blog", type: ISSUE) {
+      search(
+        first: 10
+        query: "repo:rfoel/rfoel.dev is:open label:blog"
+        type: ISSUE
+      ) {
         nodes {
           ... on Issue {
             bodyText
