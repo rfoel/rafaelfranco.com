@@ -1,3 +1,10 @@
+## [2.0.2](https://github.com/rfoel/rfoel.dev/compare/v2.0.1...v2.0.2) (2022-02-09)
+
+
+### Bug Fixes
+
+* update usage of ssm ([f420992](https://github.com/rfoel/rfoel.dev/commit/f42099201b5c133a8271df967d7fb7a7e298a243))
+
 ## [2.0.1](https://github.com/rfoel/rfoel.dev/compare/v2.0.0...v2.0.1) (2022-02-07)
 
 
