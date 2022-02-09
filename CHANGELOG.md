@@ -1,3 +1,10 @@
+# [2.1.0](https://github.com/rfoel/rfoel.dev/compare/v2.0.2...v2.1.0) (2022-02-09)
+
+
+### Features
+
+* add splitbee ([464ea24](https://github.com/rfoel/rfoel.dev/commit/464ea2406057da9aca79998754c28899b2fe7d2d))
+
 ## [2.0.2](https://github.com/rfoel/rfoel.dev/compare/v2.0.1...v2.0.2) (2022-02-09)
 
 
