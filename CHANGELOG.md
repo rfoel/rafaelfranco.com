@@ -1,3 +1,10 @@
+## [2.1.1](https://github.com/rfoel/rfoel.dev/compare/v2.1.0...v2.1.1) (2022-02-09)
+
+
+### Bug Fixes
+
+* remove splitbee rewrites ([79afdd9](https://github.com/rfoel/rfoel.dev/commit/79afdd9570e9559325cb49bd74031f62d060b9e4))
+
 # [2.1.0](https://github.com/rfoel/rfoel.dev/compare/v2.0.2...v2.1.0) (2022-02-09)
 
 
