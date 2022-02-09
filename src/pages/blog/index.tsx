@@ -1,3 +1,4 @@
+import Head from 'next/head'
 import Link from 'next/link'
 import slugify from 'slugify'
 import styled from 'styled-components'
@@ -25,18 +26,23 @@ const Posts = () => {
   const { data } = usePosts()
 
   return (
-    <Container>
-      {data?.map((post: Post) => {
-        const slug = slugify(post.title.toLowerCase())
-        return (
-          <Link key={slug} href={`blog/${slug}`} passHref>
-            <Thumbnail>
-              <PostHeader {...post} />
-            </Thumbnail>
-          </Link>
-        )
-      })}
-    </Container>
+    <>
+      <Head>
+        <title>rfoel.dev | Blog</title>
+      </Head>
+      <Container>
+        {data?.map((post: Post) => {
+          const slug = slugify(post.title.toLowerCase())
+          return (
+            <Link key={slug} href={`blog/${slug}`} passHref>
+              <Thumbnail>
+                <PostHeader {...post} />
+              </Thumbnail>
+            </Link>
+          )
+        })}
+      </Container>
+    </>
   )
 }
 

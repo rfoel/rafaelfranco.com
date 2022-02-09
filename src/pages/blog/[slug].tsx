@@ -1,5 +1,6 @@
 import dayjs from 'dayjs'
 import type { NextApiRequest } from 'next'
+import Head from 'next/head'
 import { useRouter } from 'next/router'
 import React from 'react'
 import ReactMarkdown from 'react-markdown'
@@ -60,33 +61,38 @@ const Post = () => {
   if (!data) return null
 
   return (
-    <Container>
-      <PostHeader {...data} />
-      <Labels>
-        {data.labels.map((label) => (
-          <Badge key={label.name} {...label} />
-        ))}
-      </Labels>
-      <Article>
-        <ReactMarkdown
-          components={{
-            code({ inline, className, children }) {
-              const match = /language-(\w+)/.exec(className || '')
-              return !inline ? (
-                <Prism language={match?.[1]} style={ghcolors} showLineNumbers>
-                  {String(children).replace(/\n$/, '')}
-                </Prism>
-              ) : (
-                <InlineCode className={className}>{children}</InlineCode>
-              )
-            },
-          }}
-          remarkPlugins={[emoji]}
-        >
-          {data.body}
-        </ReactMarkdown>
-      </Article>
-    </Container>
+    <>
+      <Head>
+        <title>rfoel.dev | {data.title}</title>
+      </Head>
+      <Container>
+        <PostHeader {...data} />
+        <Labels>
+          {data.labels.map((label) => (
+            <Badge key={label.name} {...label} />
+          ))}
+        </Labels>
+        <Article>
+          <ReactMarkdown
+            components={{
+              code({ inline, className, children }) {
+                const match = /language-(\w+)/.exec(className || '')
+                return !inline ? (
+                  <Prism language={match?.[1]} style={ghcolors} showLineNumbers>
+                    {String(children).replace(/\n$/, '')}
+                  </Prism>
+                ) : (
+                  <InlineCode className={className}>{children}</InlineCode>
+                )
+              },
+            }}
+            remarkPlugins={[emoji]}
+          >
+            {data.body}
+          </ReactMarkdown>
+        </Article>
+      </Container>
+    </>
   )
 }
 
