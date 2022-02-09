@@ -9,10 +9,7 @@ import '../static/index.css'
 
 const App = ({ Component, pageProps }: AppProps) => {
   useEffect(() => {
-    splitbee.init({
-      scriptUrl: '/bee.js',
-      apiUrl: '/_hive',
-    })
+    splitbee.init()
   }, [])
 
   return (
