@@ -18,6 +18,10 @@ const Body = styled.div`
   padding: 32px;
   background-color: #ffffff;
   width: 100%;
+
+  @media only screen and (min-width: 600px) {
+    padding: 16px;
+  }
 `
 
 const Layout: React.FC = ({ children }) => (

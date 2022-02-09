@@ -12,6 +12,16 @@ body,
   width: 100%;
 }
 
+a {
+  color: var(--blue);
+  cursor: pointer;
+  text-decoration: none;
+}
+
+a:visited {
+  color: var(--blue);
+}
+
 *,
 ::before,
 ::after {

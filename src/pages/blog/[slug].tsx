@@ -4,7 +4,7 @@ import { useRouter } from 'next/router'
 import React from 'react'
 import ReactMarkdown from 'react-markdown'
 import { Prism } from 'react-syntax-highlighter'
-import { dracula } from 'react-syntax-highlighter/dist/cjs/styles/prism'
+import { ghcolors } from 'react-syntax-highlighter/dist/cjs/styles/prism'
 import emoji from 'remark-emoji'
 import styled from 'styled-components'
 import { SWRConfig } from 'swr'
@@ -29,7 +29,11 @@ const InlineCode = styled.code`
 `
 
 const Labels = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+
   > * {
+    margin-bottom: 8px;
     margin-right: 8px;
   }
 `
@@ -37,9 +41,9 @@ const Labels = styled.div`
 const Article = styled.article`
   margin: 48px 0;
 
-  code,
   pre {
-    border-radius: 8px !important;
+    border-radius: 0 !important;
+    box-shadow: 0.25rem 0.25rem var(--red);
   }
 
   img {
@@ -68,13 +72,10 @@ const Post = () => {
           components={{
             code({ inline, className, children }) {
               const match = /language-(\w+)/.exec(className || '')
-              return !inline && match ? (
-                <Prism
-                  children={String(children).replace(/\n$/, '')}
-                  language={match[1]}
-                  style={dracula}
-                  showLineNumbers
-                />
+              return !inline ? (
+                <Prism language={match?.[1]} style={ghcolors} showLineNumbers>
+                  {String(children).replace(/\n$/, '')}
+                </Prism>
               ) : (
                 <InlineCode className={className}>{children}</InlineCode>
               )

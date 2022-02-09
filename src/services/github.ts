@@ -1,8 +1,26 @@
+import { SSM } from 'aws-sdk'
 import { gql, request } from 'graphql-request'
 
 import type { Issues, Post } from '../types'
 
+const ssm = new SSM({ region: process.env.REGION })
+let token: string
+
+const getToken = async () => {
+  if (token) return
+
+  const { Parameter } = await ssm
+    .getParameter({
+      Name: `/${process.env.STAGE}/personalAccessToken`,
+    })
+    .promise()
+
+  if (Parameter?.Value) token = Parameter.Value
+}
+
 export const searchIssues = async (): Promise<Post[]> => {
+  await getToken()
+
   const query = gql`
     query {
       search(
@@ -25,13 +43,15 @@ export const searchIssues = async (): Promise<Post[]> => {
     'https://api.github.com/graphql',
     query,
     {},
-    { Authorization: `Bearer ${process.env.PERSONAL_ACCESS_TOKEN}` },
+    { Authorization: `Bearer ${token}` },
   )
 
   return data.search.nodes as unknown as Post[]
 }
 
 export const searchIssue = async (slug: string): Promise<Post> => {
+  await getToken()
+
   const query = `repo:rfoel/rfoel.dev label:blog "${slug}"`
 
   const data = await request<Issues>(
@@ -57,7 +77,7 @@ export const searchIssue = async (slug: string): Promise<Post> => {
       }
     `,
     { query },
-    { Authorization: `Bearer ${process.env.PERSONAL_ACCESS_TOKEN}` },
+    { Authorization: `Bearer ${token}` },
   )
 
   const post = data.search.nodes[0] as unknown as Post

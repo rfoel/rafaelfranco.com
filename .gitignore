@@ -130,3 +130,7 @@ dist
 .sst/
 .build/
 cdk.context.json
+src/package.json
+
+# macOS
+.DS_Store

@@ -29,7 +29,7 @@ const Posts = () => {
       {data?.map((post: Post) => {
         const slug = slugify(post.title.toLowerCase())
         return (
-          <Link key={slug} href={`blog/${slug}`}>
+          <Link key={slug} href={`blog/${slug}`} passHref>
             <Thumbnail>
               <PostHeader {...post} />
             </Thumbnail>

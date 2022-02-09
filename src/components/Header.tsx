@@ -31,12 +31,12 @@ const Header = () => {
   return (
     <Container>
       <Nav>
-        <Link href="/">
+        <Link href="/" passHref>
           <Anchor>
             <Logo />
           </Anchor>
         </Link>
-        <Link href="/blog">
+        <Link href="/blog" passHref prefetch>
           <Anchor active={router.pathname.includes('/blog')}>Blog</Anchor>
         </Link>
       </Nav>
