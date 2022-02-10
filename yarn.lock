@@ -3050,10 +3050,10 @@
     node-addon-api "3.2.1"
     node-gyp "8.1.0"
 
-"@serverless-stack/cli@^0.61.3":
-  version "0.61.3"
-  resolved "https://registry.yarnpkg.com/@serverless-stack/cli/-/cli-0.61.3.tgz#084ffc5273899c911f92bd901cb922eac43ff6d5"
-  integrity sha512-C20wsDkbTOlUEAKk6twLAQ747QqHuWZGpZnj0qFK03IbPaL8FYpN9gjUuzHZVwYtzQ8WsbIfep3uqlwJEkTQWA==
+"@serverless-stack/cli@^0.62.0":
+  version "0.62.0"
+  resolved "https://registry.yarnpkg.com/@serverless-stack/cli/-/cli-0.62.0.tgz#c46bbc9dd82e9da66413179cc72f6885f6ad1f02"
+  integrity sha512-dHnANtO3mJG4z4KZ1zte/QF6t3EHbs/+Nob4pBdifqJoT4roNGWLu+9yQ9moGD1yaS+FVTy6RJTQqM3GTdqEMg==
   dependencies:
     "@aws-cdk/aws-apigatewayv2-alpha" "2.7.0-alpha.0"
     "@babel/core" "^7.10.5"
@@ -3062,8 +3062,8 @@
     "@babel/plugin-proposal-class-properties" "^7.10.4"
     "@babel/preset-env" "^7.10.4"
     "@serverless-stack/aws-lambda-ric" "^2.0.12"
-    "@serverless-stack/core" "^0.61.3"
-    "@serverless-stack/resources" "^0.61.3"
+    "@serverless-stack/core" "^0.62.0"
+    "@serverless-stack/resources" "^0.62.0"
     "@types/jest" "^27.0.2"
     "@types/node" "^14.0.27"
     "@typescript-eslint/eslint-plugin" "^4.15.1"
@@ -3081,7 +3081,7 @@
     esbuild "^0.12.20"
     esbuild-runner "^2.2.1"
     eslint "^7.16.0"
-    eslint-config-serverless-stack "^0.61.3"
+    eslint-config-serverless-stack "^0.62.0"
     express "^4.17.1"
     fast-safe-stringify "^2.0.6"
     fs-extra "^9.0.1"
@@ -3103,6 +3103,47 @@
   version "0.61.3"
   resolved "https://registry.yarnpkg.com/@serverless-stack/core/-/core-0.61.3.tgz#fc6f6d4650de8c07fcc14f2e9ae9bb4b2237a828"
   integrity sha512-J4RtVHaLB7D8+ODo2nb5i8VvjK9A3Bg9EZIE2ygAZdKuD7NFpfRSEIWFIk5n3HXyKx6TiJNGh1xVmXLTEfWlBg==
+  dependencies:
+    "@aws-sdk/client-s3" "^3.45.0"
+    "@trpc/client" "^9.16.0"
+    "@trpc/react" "^9.16.0"
+    "@trpc/server" "^9.16.0"
+    "@types/jest" "^26.0.7"
+    "@types/picomatch" "^2.3.0"
+    async-retry "^1.3.3"
+    aws-cdk "2.7.0"
+    aws-cdk-lib "2.7.0"
+    aws-sdk "^2.761.0"
+    chalk "^4.1.0"
+    chokidar "^3.5.2"
+    ci-info "^3.3.0"
+    conf "^10.1.1"
+    constructs "^10.0.29"
+    cross-spawn "^7.0.3"
+    dataloader "^2.0.0"
+    dendriform-immer-patch-optimiser "^2.1.0"
+    dotenv "^10.0.0"
+    dotenv-expand "^5.1.0"
+    esbuild "^0.14.11"
+    express "^4.17.1"
+    fs-extra "^9.0.1"
+    immer "^9.0.7"
+    jest "^26.1.0"
+    js-yaml "^4.1.0"
+    log4js "^6.3.0"
+    picomatch "^2.3.0"
+    remeda "^0.0.32"
+    stun "^2.1.0"
+    ts-jest "^26.1.4"
+    typescript "^4.4.3"
+    uuid "^8.3.2"
+    xstate "^4.26.1"
+    zod "^3.11.6"
+
+"@serverless-stack/core@^0.62.0":
+  version "0.62.0"
+  resolved "https://registry.yarnpkg.com/@serverless-stack/core/-/core-0.62.0.tgz#c8518446f9881ec825f7f77ea54add7357f7d7ef"
+  integrity sha512-lbIX3/K1olPgu5s+m72bJLblT31YJ00nQ0RlPtUoGGC+JwOsOtkeCTtBMrDykN/fCfaqTcpuchvmTn+FZA+jXQ==
   dependencies:
     "@aws-sdk/client-s3" "^3.45.0"
     "@trpc/client" "^9.16.0"
@@ -3185,6 +3226,35 @@
     "@graphql-tools/load-files" "^6.3.2"
     "@graphql-tools/merge" "^6.2.14"
     "@serverless-stack/core" "^0.61.3"
+    "@serverless-stack/nextjs-lambda" "^0.1.9"
+    "@types/jest" "^26.0.7"
+    archiver "^5.3.0"
+    aws-cdk-lib "2.7.0"
+    chalk "^4.1.0"
+    constructs "^10.0.29"
+    cross-spawn "^7.0.3"
+    esbuild "^0.12.20"
+    eslint "^7.16.0"
+    fs-extra "^9.0.1"
+    glob "^7.1.7"
+    graphql "^15.5.1"
+    jest "^26.1.0"
+    ts-jest "^26.1.4"
+    typescript "^4.4.3"
+    zip-local "^0.3.4"
+
+"@serverless-stack/resources@^0.62.0":
+  version "0.62.0"
+  resolved "https://registry.yarnpkg.com/@serverless-stack/resources/-/resources-0.62.0.tgz#b2a4d64fa3fc5b433bafad01ca8b8b25e7eeab95"
+  integrity sha512-W/H6K228lBxfZoX4ZW42q86eIvtpX183dkJquQx63/5eVe6tGOW/7xCteimCKQo2XKea/EWotL0S1b0wR7m0tA==
+  dependencies:
+    "@aws-cdk/aws-apigatewayv2-alpha" "2.7.0-alpha.0"
+    "@aws-cdk/aws-apigatewayv2-authorizers-alpha" "2.7.0-alpha.0"
+    "@aws-cdk/aws-apigatewayv2-integrations-alpha" "2.7.0-alpha.0"
+    "@aws-cdk/aws-appsync-alpha" "2.7.0-alpha.0"
+    "@graphql-tools/load-files" "^6.3.2"
+    "@graphql-tools/merge" "^6.2.14"
+    "@serverless-stack/core" "^0.62.0"
     "@serverless-stack/nextjs-lambda" "^0.1.9"
     "@types/jest" "^26.0.7"
     archiver "^5.3.0"
@@ -3519,10 +3589,10 @@
   resolved "https://registry.yarnpkg.com/@types/ms/-/ms-0.7.31.tgz#31b7ca6407128a3d2bbc27fe2d21b345397f6197"
   integrity sha512-iiUgKzV9AuaEkZqkOLDIvlQiL6ltuZd9tGcW3gwpnX8JbuiuhFlEGmmFXEXkN50Cvq7Os88IY2v0dkDqXYWVgA==
 
-"@types/node@*":
-  version "17.0.15"
-  resolved "https://registry.yarnpkg.com/@types/node/-/node-17.0.15.tgz#97779282c09c09577120a2162e71d8380003590a"
-  integrity sha512-zWt4SDDv1S9WRBNxLFxFRHxdD9tvH8f5/kg5/IaLFdnSNXsDY4eL3Q3XXN+VxUnWIhyVFDwcsmAprvwXoM/ClA==
+"@types/node@*", "@types/node@^17.0.16":
+  version "17.0.16"
+  resolved "https://registry.yarnpkg.com/@types/node/-/node-17.0.16.tgz#e3733f46797b9df9e853ca9f719c8a6f7b84cd26"
+  integrity sha512-ydLaGVfQOQ6hI1xK2A5nVh8bl0OGoIfYMxPWHqqYe9bTkWCfqiVvZoh2I/QF2sNSkZzZyROBoTefIEI+PB6iIA==
 
 "@types/node@^10.1.0", "@types/node@^10.17.60":
   version "10.17.60"
@@ -3533,11 +3603,6 @@
   version "14.18.10"
   resolved "https://registry.yarnpkg.com/@types/node/-/node-14.18.10.tgz#774f43868964f3cfe4ced1f5417fe15818a4eaea"
   integrity sha512-6iihJ/Pp5fsFJ/aEDGyvT4pHGmCpq7ToQ/yf4bl5SbVAvwpspYJ+v3jO7n8UyjhQVHTy+KNszOozDdv+O6sovQ==
-
-"@types/node@^17.0.16":
-  version "17.0.16"
-  resolved "https://registry.yarnpkg.com/@types/node/-/node-17.0.16.tgz#e3733f46797b9df9e853ca9f719c8a6f7b84cd26"
-  integrity sha512-ydLaGVfQOQ6hI1xK2A5nVh8bl0OGoIfYMxPWHqqYe9bTkWCfqiVvZoh2I/QF2sNSkZzZyROBoTefIEI+PB6iIA==
 
 "@types/normalize-package-data@^2.4.0":
   version "2.4.1"
@@ -4514,25 +4579,10 @@ aws-cdk@2.7.0:
     yaml "1.10.2"
     yargs "^16.2.0"
 
-aws-sdk@^2.1071.0:
+aws-sdk@^2.1071.0, aws-sdk@^2.761.0, aws-sdk@^2.848.0, aws-sdk@^2.979.0:
   version "2.1071.0"
   resolved "https://registry.yarnpkg.com/aws-sdk/-/aws-sdk-2.1071.0.tgz#f92e5521f86a3d8f1bfd3ea6afaea03aa56757dc"
   integrity sha512-Fjp5GOzctLHly5ySBGzASZVWEQi3zHc2TlYkiT5VNwvDiV9Uwv2frm2zgQf0wL6BOkPRS2b1TfOJT7x6Q5aOIw==
-  dependencies:
-    buffer "4.9.2"
-    events "1.1.1"
-    ieee754 "1.1.13"
-    jmespath "0.16.0"
-    querystring "0.2.0"
-    sax "1.2.1"
-    url "0.10.3"
-    uuid "3.3.2"
-    xml2js "0.4.19"
-
-aws-sdk@^2.761.0, aws-sdk@^2.848.0, aws-sdk@^2.979.0:
-  version "2.1070.0"
-  resolved "https://registry.yarnpkg.com/aws-sdk/-/aws-sdk-2.1070.0.tgz#e7a27c34ed3a92776aa9128ed3469cb94bba9655"
-  integrity sha512-tkmuycoJ9k0qF1iq03iqyhevxP3l0OlrnUxjd0x8nZ9Ko1TGjyj0yJS4Vbd4r5RBpKUwRqedB7TAyZ/71mcZKw==
   dependencies:
     buffer "4.9.2"
     events "1.1.1"
@@ -6632,10 +6682,10 @@ eslint-config-prettier@^8.3.0:
   resolved "https://registry.yarnpkg.com/eslint-config-prettier/-/eslint-config-prettier-8.3.0.tgz#f7471b20b6fe8a9a9254cc684454202886a2dd7a"
   integrity sha512-BgZuLUSeKzvlL/VUjx/Yb787VQ26RU3gGjA3iiFvdsp/2bMfVIWUVP7tjxtjS0e+HP409cPlPvNkQloz8C91ew==
 
-eslint-config-serverless-stack@^0.61.3:
-  version "0.61.3"
-  resolved "https://registry.yarnpkg.com/eslint-config-serverless-stack/-/eslint-config-serverless-stack-0.61.3.tgz#ac3f087a6c00be84f84c8732833f5358599f7037"
-  integrity sha512-JevC5acKQHQdNkhN8YISfpo9+Q1jHnhlS/WoBZJ7uAuiAPoPORk41bOnxaH6Eb1AUHjLSF9SvKtjbcvWaFGzVQ==
+eslint-config-serverless-stack@^0.62.0:
+  version "0.62.0"
+  resolved "https://registry.yarnpkg.com/eslint-config-serverless-stack/-/eslint-config-serverless-stack-0.62.0.tgz#63cd8f7062fa8079fd0497c6cb5b32b607e18a5e"
+  integrity sha512-Atzpz17xnV90ozas9RIghFLkjMgEu/v/Cd5f3iV9vMxyKw0sOqROu4JaisDBP0VL/0sp8NedeaJB3Imh+zHhCw==
   dependencies:
     "@babel/eslint-parser" "^7.11.3"
     "@babel/plugin-proposal-class-properties" "^7.10.4"
