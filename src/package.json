@@ -27,7 +27,7 @@
     "swr": "^1.2.1"
   },
   "devDependencies": {
-    "@serverless-stack/static-site-env": "^0.61.3",
+    "@serverless-stack/static-site-env": "^0.63.0",
     "@types/node": "^17.0.16",
     "@types/react": "^17.0.39",
     "@types/react-dom": "^17.0.11",
