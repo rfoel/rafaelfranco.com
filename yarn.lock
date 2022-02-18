@@ -3202,14 +3202,14 @@
     typescript "^4.4.3"
     zip-local "^0.3.4"
 
-"@serverless-stack/static-site-env@^0.61.3":
-  version "0.61.3"
-  resolved "https://registry.yarnpkg.com/@serverless-stack/static-site-env/-/static-site-env-0.61.3.tgz#750e4cc12faa5301435ac471ea208a4854f29d3c"
-  integrity sha512-mV6cuvsXpXjPIrJUh0g8fUzXw0lV/PH3j6TnQM9aUTbP8Il6JN+isaj9ev5ZS2A8BUDwY7pu7/0IcHdClQNS6Q==
+"@serverless-stack/static-site-env@^0.65.2":
+  version "0.65.2"
+  resolved "https://registry.yarnpkg.com/@serverless-stack/static-site-env/-/static-site-env-0.65.2.tgz#8bea3ea6671b47e94a52c9e1e482fa746caa06cf"
+  integrity sha512-f6kRO3OGIYMZtON4Rd4W7SatsWZA/i25x/i/kVLfHjsjOXRp2SCjYbPGp2R6pYh2mu69oqOoez622NcX4GhXTw==
   dependencies:
-    "@serverless-stack/core" "^0.61.3"
-    chalk "^4.1.0"
-    yargs "^15.4.1"
+    cross-spawn "^7.0.3"
+    fs-extra "^9.0.1"
+    minimist "^1.2.5"
 
 "@sinonjs/commons@^1.7.0":
   version "1.8.3"
