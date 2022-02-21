@@ -1,7 +1,13 @@
 import * as sst from '@serverless-stack/resources'
 import * as ssm from 'aws-cdk-lib/aws-ssm'
 
-const { DOMAIN_NAME, PERSONAL_ACCESS_TOKEN } = process.env
+const {
+  CLIENT_ID,
+  CLIENT_SECRET,
+  DOMAIN_NAME,
+  PERSONAL_ACCESS_TOKEN,
+  SECRET_COOKIE_PASSWORD,
+} = process.env
 export default class App extends sst.Stack {
   constructor(scope: sst.App, id: string, props?: sst.StackProps) {
     super(scope, id, props)
@@ -26,7 +32,10 @@ export default class App extends sst.Stack {
         permissions: ['ssm:GetParameter'],
       },
       environment: {
+        CLIENT_ID,
+        CLIENT_SECRET,
         REGION: this.region,
+        SECRET_COOKIE_PASSWORD,
         STAGE: this.stage,
       },
       path: 'src',

@@ -1,7 +1,8 @@
-import styled from 'styled-components'
+import styled, { ThemeProvider } from 'styled-components'
 import { SWRConfig } from 'swr'
 
 import fetcher from '../utils/fetcher'
+import theme from '../utils/theme'
 
 import Footer from './Footer'
 import Header from './Header'
@@ -30,11 +31,13 @@ const Layout: React.FC = ({ children }) => (
       fetcher,
     }}
   >
-    <Container>
-      <Header />
-      <Body>{children}</Body>
-      <Footer />
-    </Container>
+    <ThemeProvider theme={theme}>
+      <Container>
+        <Header />
+        <Body>{children}</Body>
+        <Footer />
+      </Container>
+    </ThemeProvider>
   </SWRConfig>
 )
 

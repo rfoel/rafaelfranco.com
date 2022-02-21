@@ -1,3 +1,4 @@
+import type { GetServerSideProps } from 'next'
 import Head from 'next/head'
 import Link from 'next/link'
 import slugify from 'slugify'
@@ -6,7 +7,7 @@ import { SWRConfig } from 'swr'
 
 import PostHeader from '../../components/PostHeader'
 import usePosts from '../../hooks/usePosts'
-import { searchIssues } from '../../services/github'
+import { authenticate, searchIssues } from '../../services/github'
 import { Post } from '../../types'
 
 const Container = styled.div`
@@ -46,7 +47,16 @@ const Posts = () => {
   )
 }
 
-const BlogIndex = (props: { fallback: Record<string, unknown> }) => {
+const BlogIndex: React.FC<{
+  auth: { accessToken: string; login: string }
+  fallback: Record<string, unknown>
+}> = (props) => {
+  if (typeof window !== 'undefined' && props.auth) {
+    localStorage.setItem('accessToken', props.auth.accessToken)
+    localStorage.setItem('login', props.auth.login)
+    window.close()
+  }
+
   return (
     <SWRConfig value={{ fallback: props.fallback }}>
       <Posts />
@@ -54,10 +64,19 @@ const BlogIndex = (props: { fallback: Record<string, unknown> }) => {
   )
 }
 
-export const getServerSideProps = async () => {
+export const getServerSideProps: GetServerSideProps = async (req) => {
+  const { code } = req.query
+
+  let auth
+  if (typeof code === 'string') {
+    auth = await authenticate(code)
+  }
+
   const posts = await searchIssues()
+
   return {
     props: {
+      ...(auth && { auth }),
       fallback: {
         [`/api/blog`]: posts,
       },

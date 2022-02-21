@@ -1,32 +1,31 @@
 import dayjs from 'dayjs'
-import type { NextApiRequest } from 'next'
+import type { GetServerSideProps } from 'next'
 import Head from 'next/head'
 import { useRouter } from 'next/router'
 import React from 'react'
-import ReactMarkdown from 'react-markdown'
-import { Prism } from 'react-syntax-highlighter'
-import { ghcolors } from 'react-syntax-highlighter/dist/cjs/styles/prism'
-import emoji from 'remark-emoji'
 import styled from 'styled-components'
 import { SWRConfig } from 'swr'
 import 'dayjs/locale/pt-br'
 
 import Badge from '../../components/Badge'
+import Comment from '../../components/Comment'
+import Comments from '../../components/Comments'
+import Markdown from '../../components/Markdown'
 import PostHeader from '../../components/PostHeader'
+import Reactions from '../../components/Reactions'
 import usePost from '../../hooks/usePost'
-import { searchIssue } from '../../services/github'
+import { getOAuthUrl, searchIssue } from '../../services/github'
 
 dayjs.locale('pt-br')
 
 const Container = styled.div``
 
-const InlineCode = styled.code`
-  padding: 4px 8px;
-  background-color: var(--light);
-  border-radius: 8px;
-  color: var(--blue);
-  font-family: monospace;
-  font-size: 14px;
+const CommentSection = styled.div`
+  margin-top: 16px;
+`
+
+const Body = styled.div`
+  margin: 32px 0px;
 `
 
 const Labels = styled.div`
@@ -39,21 +38,7 @@ const Labels = styled.div`
   }
 `
 
-const Article = styled.article`
-  margin: 48px 0;
-
-  pre {
-    border-radius: 0 !important;
-    box-shadow: 0.25rem 0.25rem var(--red);
-  }
-
-  img {
-    width: 100%;
-    border-radius: 8px;
-  }
-`
-
-const Post = () => {
+const Post: React.FC<{ OAuthUrl: string }> = ({ OAuthUrl }) => {
   const router = useRouter()
   const { slug } = router.query
   const { data } = usePost(slug as string)
@@ -72,43 +57,48 @@ const Post = () => {
             <Badge key={label.name} {...label} />
           ))}
         </Labels>
-        <Article>
-          <ReactMarkdown
-            components={{
-              code({ inline, className, children }) {
-                const match = /language-(\w+)/.exec(className || '')
-                return !inline ? (
-                  <Prism language={match?.[1]} style={ghcolors} showLineNumbers>
-                    {String(children).replace(/\n$/, '')}
-                  </Prism>
-                ) : (
-                  <InlineCode className={className}>{children}</InlineCode>
-                )
-              },
-            }}
-            remarkPlugins={[emoji]}
-          >
-            {data.body}
-          </ReactMarkdown>
-        </Article>
+        <Body>
+          <Markdown isPost>{data.body}</Markdown>
+        </Body>
+        <Reactions
+          issueNumber={data.issueNumber}
+          hideEmptyReactions={false}
+          reactions={data.reactions}
+          OAuthUrl={OAuthUrl}
+        />
+        <CommentSection>
+          <Comment issueNumber={data.issueNumber} OAuthUrl={OAuthUrl} />
+          <Comments
+            comments={data.comments}
+            totalComments={data.totalComments}
+            OAuthUrl={OAuthUrl}
+          />
+        </CommentSection>
       </Container>
     </>
   )
 }
 
-const BlogPost = (props: { fallback: Record<string, unknown> }) => {
+const BlogPost: React.FC<{
+  OAuthUrl: string
+  fallback: Record<string, unknown>
+}> = (props) => {
   return (
     <SWRConfig value={{ fallback: props.fallback }}>
-      <Post />
+      <Post OAuthUrl={props.OAuthUrl} />
     </SWRConfig>
   )
 }
 
-export const getServerSideProps = async (req: NextApiRequest) => {
+export const getServerSideProps: GetServerSideProps = async (req) => {
   const { slug } = req.query
+
+  const OAuthUrl = getOAuthUrl()
   const post = await searchIssue(slug as string)
+
   return {
     props: {
+      OAuthUrl,
       fallback: {
         [`/api/blog/${slug}`]: post,
       },

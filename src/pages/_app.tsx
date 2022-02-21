@@ -7,7 +7,7 @@ import Layout from '../components/Layout'
 
 import '../static/index.css'
 
-const App = ({ Component, pageProps }: AppProps) => {
+const App = ({ Component, pageProps }: AppProps): React.ReactElement => {
   useEffect(() => {
     splitbee.init()
   }, [])

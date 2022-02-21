@@ -36,7 +36,7 @@ const Header = () => {
             <Logo />
           </Anchor>
         </Link>
-        <Link href="/blog" passHref prefetch>
+        <Link href="/blog" passHref>
           <Anchor active={router.pathname.includes('/blog')}>Blog</Anchor>
         </Link>
       </Nav>

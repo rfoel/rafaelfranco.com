@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-css-tags */
 import Document, {
   DocumentContext,
   Head,
@@ -62,6 +63,7 @@ export default class MyDocument extends Document {
             href="../static/favicon-16x16.png"
           />
           <link rel="manifest" href="../static/site.webmanifest" />
+          <link rel="stylesheet" href="../static/index.css" />
         </Head>
         <body>
           <Main />
