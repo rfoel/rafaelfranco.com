@@ -3140,6 +3140,45 @@
     xstate "^4.26.1"
     zod "^3.11.6"
 
+"@serverless-stack/core@^0.65.4":
+  version "0.65.4"
+  resolved "https://registry.yarnpkg.com/@serverless-stack/core/-/core-0.65.4.tgz#342d985662ff4f81571af1d1d004bf501f8e247c"
+  integrity sha512-WKjnxzeXBjkTzDTTl0Xlfwqu9j2OyUBl+Q6FS2FRNPpHamvkqwKyj9qCbHIh8vL6s4QHMFUCYANxG16WobY2Tw==
+  dependencies:
+    "@aws-sdk/client-s3" "^3.45.0"
+    "@trpc/server" "^9.16.0"
+    "@types/jest" "^26.0.7"
+    "@types/picomatch" "^2.3.0"
+    async-retry "^1.3.3"
+    aws-cdk "2.7.0"
+    aws-cdk-lib "2.7.0"
+    aws-sdk "^2.761.0"
+    chalk "^4.1.0"
+    chokidar "^3.5.2"
+    ci-info "^3.3.0"
+    conf "^10.1.1"
+    constructs "^10.0.29"
+    cross-spawn "^7.0.3"
+    dataloader "^2.0.0"
+    dendriform-immer-patch-optimiser "^2.1.0"
+    dotenv "^10.0.0"
+    dotenv-expand "^5.1.0"
+    esbuild "^0.14.11"
+    express "^4.17.1"
+    fs-extra "^9.0.1"
+    immer "^9.0.7"
+    jest "^26.1.0"
+    js-yaml "^4.1.0"
+    log4js "^6.3.0"
+    picomatch "^2.3.0"
+    remeda "^0.0.32"
+    stun "^2.1.0"
+    ts-jest "^26.1.4"
+    typescript "^4.4.3"
+    uuid "^8.3.2"
+    xstate "4.26.1"
+    zod "^3.11.6"
+
 "@serverless-stack/nextjs-core@^0.1.9":
   version "0.1.9"
   resolved "https://registry.yarnpkg.com/@serverless-stack/nextjs-core/-/nextjs-core-0.1.9.tgz#ca480e8081df5d262ed5f61ef44584e130198e17"
@@ -3186,6 +3225,34 @@
     "@graphql-tools/merge" "^6.2.14"
     "@serverless-stack/core" "^0.61.3"
     "@serverless-stack/nextjs-lambda" "^0.1.9"
+    "@types/jest" "^26.0.7"
+    archiver "^5.3.0"
+    aws-cdk-lib "2.7.0"
+    chalk "^4.1.0"
+    constructs "^10.0.29"
+    cross-spawn "^7.0.3"
+    esbuild "^0.12.20"
+    eslint "^7.16.0"
+    fs-extra "^9.0.1"
+    glob "^7.1.7"
+    graphql "^15.5.1"
+    jest "^26.1.0"
+    ts-jest "^26.1.4"
+    typescript "^4.4.3"
+    zip-local "^0.3.4"
+
+"@serverless-stack/resources@^0.65.4":
+  version "0.65.4"
+  resolved "https://registry.yarnpkg.com/@serverless-stack/resources/-/resources-0.65.4.tgz#1e6812d99383e7247b3a20087f686c3c125d1189"
+  integrity sha512-ALFGjOq+QpZqKcaP/nlqbLJUZ7b+xlzjgSEL+j595oc4fNcVn2IuHheJtM+S2h3CLklnr6yMCEX5WVWL6Y6r5g==
+  dependencies:
+    "@aws-cdk/aws-apigatewayv2-alpha" "2.7.0-alpha.0"
+    "@aws-cdk/aws-apigatewayv2-authorizers-alpha" "2.7.0-alpha.0"
+    "@aws-cdk/aws-apigatewayv2-integrations-alpha" "2.7.0-alpha.0"
+    "@aws-cdk/aws-appsync-alpha" "2.7.0-alpha.0"
+    "@graphql-tools/load-files" "^6.3.2"
+    "@graphql-tools/merge" "^6.2.14"
+    "@serverless-stack/core" "^0.65.4"
     "@types/jest" "^26.0.7"
     archiver "^5.3.0"
     aws-cdk-lib "2.7.0"
@@ -14692,6 +14759,11 @@ xss@^1.0.8:
   dependencies:
     commander "^2.20.3"
     cssfilter "0.0.10"
+
+xstate@4.26.1:
+  version "4.26.1"
+  resolved "https://registry.yarnpkg.com/xstate/-/xstate-4.26.1.tgz#4fc1afd153f88cf302a9ee2b758f6629e6a829b6"
+  integrity sha512-JLofAEnN26l/1vbODgsDa+Phqa61PwDlxWu8+2pK+YbXf+y9pQSDLRvcYH2H1kkeUBA5fGp+xFL/zfE8jNMw4g==
 
 xstate@^4.26.1:
   version "4.29.0"
