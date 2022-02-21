@@ -1,3 +1,10 @@
+# [2.2.0](https://github.com/rfoel/rfoel.dev/compare/v2.1.1...v2.2.0) (2022-02-21)
+
+
+### Features
+
+* add comments and reactions ([5c5833f](https://github.com/rfoel/rfoel.dev/commit/5c5833faf423fc1de787c9455ef613cd13ff5b8b))
+
 ## [2.1.1](https://github.com/rfoel/rfoel.dev/compare/v2.1.0...v2.1.1) (2022-02-09)
 
 
