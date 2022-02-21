@@ -24,7 +24,7 @@
     "remark-emoji": "^3.0.2",
     "slugify": "^1.6.5",
     "styled-components": "^5.3.3",
-    "swr": "^1.2.1"
+    "swr": "^1.2.2"
   },
   "devDependencies": {
     "@serverless-stack/static-site-env": "^0.61.3",
