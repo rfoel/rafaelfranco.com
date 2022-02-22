@@ -1,4 +1,7 @@
 import * as sst from '@serverless-stack/resources'
+import * as cloudfront from 'aws-cdk-lib/aws-cloudfront'
+import { AllowedMethods } from 'aws-cdk-lib/aws-cloudfront'
+import * as origins from 'aws-cdk-lib/aws-cloudfront-origins'
 
 const {
   CLIENT_ID,
@@ -20,8 +23,8 @@ export default class App extends sst.Stack {
         domainName,
         hostedZone: DOMAIN_NAME,
       },
-      defaultFunctionProps: {
-        permissions: ['ssm:GetParameter'],
+      cfDistribution: {
+        defaultBehavior: { allowedMethods: AllowedMethods.ALLOW_ALL },
       },
       environment: {
         CLIENT_ID,
@@ -33,6 +36,7 @@ export default class App extends sst.Stack {
         STAGE: this.stage,
       },
       path: 'src',
+      waitForInvalidation: false,
     })
 
     this.addOutputs({

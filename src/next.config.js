@@ -8,8 +8,7 @@ module.exports = {
     SECRET_COOKIE_PASSWORD: process.env.SECRET_COOKIE_PASSWORD,
     STAGE: process.env.STAGE,
   },
-  // eslint-disable-next-line @typescript-eslint/require-await
-  async rewrites() {
+  rewrites() {
     return [
       {
         source: '/bee.js',
