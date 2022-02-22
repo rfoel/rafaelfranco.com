@@ -1,3 +1,10 @@
+## [2.2.1](https://github.com/rfoel/rfoel.dev/compare/v2.2.0...v2.2.1) (2022-02-22)
+
+
+### Bug Fixes
+
+* minor layout adjustments ([67eddda](https://github.com/rfoel/rfoel.dev/commit/67eddda1b49fcab381987fab540c767a18da47d7))
+
 # [2.2.0](https://github.com/rfoel/rfoel.dev/compare/v2.1.1...v2.2.0) (2022-02-21)
 
 
