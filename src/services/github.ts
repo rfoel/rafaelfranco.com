@@ -1,8 +1,7 @@
 import { Octokit } from '@octokit/core'
 import type { Endpoints, OctokitResponse } from '@octokit/types'
-import { gql } from 'graphql-request'
 
-import type { Issues, Post } from '../types'
+import type { Issues, SummaryIssues } from '../types'
 
 let blogOctokit: Octokit
 let userOctokit: Octokit
@@ -55,10 +54,9 @@ const initUserOctokit = (accessToken: string) => {
   userOctokit = new Octokit({ auth: accessToken })
 }
 
-export const searchIssues = async (): Promise<Post[]> => {
+export const searchIssues = async (): Promise<SummaryIssues> => {
   initBlogOctokit()
-
-  const query = gql`
+  const query = `
     query {
       search(
         first: 10
@@ -76,14 +74,12 @@ export const searchIssues = async (): Promise<Post[]> => {
     }
   `
 
-  const data = await blogOctokit.graphql<Issues>(query)
-
-  return data.search.nodes as unknown as Post[]
+  return blogOctokit.graphql<SummaryIssues>(query)
 }
 
-export const searchIssue = async (slug: string): Promise<Post> => {
+export const searchIssue = async (slug: string): Promise<Issues> => {
   initBlogOctokit()
-  const query = gql`
+  const query = `
     query ($queryString: String!) {
       search(first: 1, query: $queryString, type: ISSUE) {
         nodes {
@@ -139,100 +135,105 @@ export const searchIssue = async (slug: string): Promise<Post> => {
     }
   `
 
-  const data = await blogOctokit.graphql<Issues>(query, {
+  return blogOctokit.graphql<Issues>(query, {
     queryString: `repo:rfoel/rfoel.dev label:blog "${slug}"`,
   })
-
-  const post = data.search.nodes[0] as unknown as Post
-  post.id = data.search.nodes[0].databaseId
-  post.issueNumber = data.search.nodes[0].number
-  post.labels = data.search.nodes[0].labels.nodes.filter(
-    ({ name }) => name !== 'blog',
-  )
-  post.totalComments = data.search.nodes[0].comments.totalCount
-  post.comments = data.search.nodes[0].comments.nodes.map(
-    ({ databaseId, author, body, createdAt, reactions }) => ({
-      id: databaseId,
-      author: author.login,
-      avatar: author.avatarUrl,
-      body,
-      createdAt,
-      reactions,
-    }),
-  )
-
-  return post
 }
 
-export const addReaction = async ({
+export const addReactionForIssue = async ({
   accessToken,
   content,
-  commentId,
   issueNumber,
 }: {
   accessToken: string
   commentId: number
   issueNumber: number
   content: Endpoints['POST /repos/{owner}/{repo}/issues/comments/{comment_id}/reactions']['parameters']['content']
-}): Promise<OctokitResponse<unknown>> => {
+}): Promise<
+  OctokitResponse<
+    Endpoints['POST /repos/{owner}/{repo}/issues/{issue_number}/reactions']['response']['data']
+  >
+> => {
   initUserOctokit(accessToken)
-  if (issueNumber) {
-    return userOctokit.request(
-      'POST /repos/{owner}/{repo}/issues/{issue_number}/reactions',
-      {
-        owner: 'rfoel',
-        repo: 'rfoel.dev',
-        content,
+  return userOctokit.request(
+    'POST /repos/{owner}/{repo}/issues/{issue_number}/reactions',
+    {
+      owner: 'rfoel',
+      repo: 'rfoel.dev',
+      content,
 
-        issue_number: issueNumber,
-      },
-    )
-  } else {
-    return userOctokit.request(
-      'POST /repos/{owner}/{repo}/issues/comments/{comment_id}/reactions',
-      {
-        owner: 'rfoel',
-        repo: 'rfoel.dev',
-        content,
-        comment_id: commentId,
-      },
-    )
-  }
+      issue_number: issueNumber,
+    },
+  )
 }
 
-export const deleteReaction = async ({
+export const addReactionForComment = async ({
   accessToken,
+  content,
   commentId,
-  issueNumber,
-  reactionId,
 }: {
   accessToken: string
   commentId: number
   issueNumber: number
-  reactionId: number
-}): Promise<OctokitResponse<unknown>> => {
+  content: Endpoints['POST /repos/{owner}/{repo}/issues/comments/{comment_id}/reactions']['parameters']['content']
+}): Promise<
+  OctokitResponse<
+    Endpoints['POST /repos/{owner}/{repo}/issues/comments/{comment_id}/reactions']['response']['data']
+  >
+> => {
   initUserOctokit(accessToken)
-  if (issueNumber) {
-    return userOctokit.request(
-      'DELETE /repos/{owner}/{repo}/issues/{issue_number}/reactions/{reaction_id}',
-      {
-        owner: 'rfoel',
-        repo: 'rfoel.dev',
-        issue_number: issueNumber,
-        reaction_id: reactionId,
-      },
-    )
-  } else {
-    return userOctokit.request(
-      'DELETE /repos/{owner}/{repo}/issues/comments/{comment_id}/reactions/{reaction_id}',
-      {
-        owner: 'rfoel',
-        repo: 'rfoel.dev',
-        comment_id: commentId,
-        reaction_id: reactionId,
-      },
-    )
-  }
+  return userOctokit.request(
+    'POST /repos/{owner}/{repo}/issues/comments/{comment_id}/reactions',
+    {
+      owner: 'rfoel',
+      repo: 'rfoel.dev',
+      content,
+      comment_id: commentId,
+    },
+  )
+}
+
+export const deleteReactionForIssue = (params: {
+  accessToken: string
+  issueNumber: number
+  reactionId: number
+}): Promise<
+  OctokitResponse<
+    Endpoints['DELETE /repos/{owner}/{repo}/issues/{issue_number}/reactions/{reaction_id}']['response']['data']
+  >
+> => {
+  initUserOctokit(params.accessToken)
+
+  return userOctokit.request(
+    'DELETE /repos/{owner}/{repo}/issues/{issue_number}/reactions/{reaction_id}',
+    {
+      owner: 'rfoel',
+      repo: 'rfoel.dev',
+      issue_number: params.issueNumber,
+      reaction_id: params.reactionId,
+    },
+  )
+}
+
+export const deleteReactionForComment = (params: {
+  accessToken: string
+  commentId: number
+  reactionId: number
+}): Promise<
+  OctokitResponse<
+    Endpoints['DELETE /repos/{owner}/{repo}/issues/comments/{comment_id}/reactions/{reaction_id}']['response']['data']
+  >
+> => {
+  initUserOctokit(params.accessToken)
+  return userOctokit.request(
+    'DELETE /repos/{owner}/{repo}/issues/comments/{comment_id}/reactions/{reaction_id}',
+    {
+      owner: 'rfoel',
+      repo: 'rfoel.dev',
+      comment_id: params.commentId,
+      reaction_id: params.reactionId,
+    },
+  )
 }
 
 export const comment = async ({
@@ -243,7 +244,11 @@ export const comment = async ({
   accessToken: string
   body: string
   issueNumber: number
-}): Promise<OctokitResponse<unknown>> => {
+}): Promise<
+  OctokitResponse<
+    Endpoints['POST /repos/{owner}/{repo}/issues/{issue_number}/comments']['response']['data']
+  >
+> => {
   initUserOctokit(accessToken)
   return userOctokit.request(
     'POST /repos/{owner}/{repo}/issues/{issue_number}/comments',

@@ -1,7 +1,8 @@
 import useSWR, { SWRResponse } from 'swr'
 
-import { Post } from '../types'
+import { SummaryIssuesData } from '../types'
 
-const usePosts = (): SWRResponse<Post[]> => useSWR<Post[]>('/api/blog')
+const usePosts = (): SWRResponse<SummaryIssuesData> =>
+  useSWR<SummaryIssuesData>('/api/blog')
 
 export default usePosts

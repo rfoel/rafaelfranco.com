@@ -2,6 +2,6 @@ import useSWR, { SWRResponse } from 'swr'
 
 import { User } from '../types'
 
-const usePost = (): SWRResponse<User> => useSWR<User>('/api/blog/user')
+const useUser = (): SWRResponse<User> => useSWR<User>('/api/blog/user')
 
-export default usePost
+export default useUser

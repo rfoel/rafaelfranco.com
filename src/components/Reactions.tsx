@@ -6,7 +6,7 @@ import styled, { css } from 'styled-components'
 import { mutate } from 'swr'
 
 import useUser from '../hooks/useUser'
-import { ReactionsNodes } from '../types'
+import { ReactionsNode } from '../types'
 
 import Icon from './Icon'
 
@@ -55,7 +55,7 @@ const ReactionsComponent: React.FC<{
   hideEmptyReactions?: boolean
   commentId?: number
   issueNumber?: number
-  reactions: ReactionsNodes
+  reactions: ReactionsNode[]
   OAuthUrl: string
 }> = ({
   hideEmptyReactions = true,
@@ -115,7 +115,7 @@ const ReactionsComponent: React.FC<{
     }
   }, [addReaction, reactionContent, user?.isLoggedIn])
 
-  const reactionsCount = reactions.nodes.reduce(
+  const reactionsCount = reactions.reduce(
     (acc, { content }) => ({ ...acc, [content]: acc[content] + 1 }),
     {
       THUMBS_UP: 0,
@@ -141,7 +141,7 @@ const ReactionsComponent: React.FC<{
           ([, value]) => toggled || (!toggled && value) || !hideEmptyReactions,
         )
         .map(([key, value]) => {
-          const reaction = reactions.nodes.find(
+          const reaction = reactions.find(
             (reaction) =>
               reaction.content === key && reaction.user.login === user?.login,
           )

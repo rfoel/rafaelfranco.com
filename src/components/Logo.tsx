@@ -1,6 +1,6 @@
 import Typed from 'react-typed'
 
-const Logo = () => (
+const Logo: React.FC = () => (
   <Typed
     backDelay={1000}
     backSpeed={50}

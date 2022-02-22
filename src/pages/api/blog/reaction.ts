@@ -6,20 +6,32 @@ import { sessionOptions } from '../../../utils/session'
 
 const reaction = withIronSessionApiRoute(
   async (req: NextApiRequest, res: NextApiResponse): Promise<void> => {
-    console.log(req)
-    console.log(res)
+    const body = JSON.parse(req.body)
     if (req.method === 'POST') {
-      const response = await github.addReaction({
-        accessToken: req.session.user?.accessToken,
-        ...JSON.parse(req.body),
-      })
-      res.status(response.status).send('')
+      const promise = body.issueNumber
+        ? github.addReactionForIssue({
+            accessToken: req.session.user?.accessToken,
+            ...body,
+          })
+        : github.addReactionForComment({
+            accessToken: req.session.user?.accessToken,
+            ...body,
+          })
+      const response = await promise
+
+      res.status(response.status).send(response.data)
     } else if (req.method === 'DELETE') {
-      const response = await github.deleteReaction({
-        accessToken: req.session.user?.accessToken,
-        ...JSON.parse(req.body),
-      })
-      res.status(response.status).send('')
+      const promise = body.issueNumber
+        ? github.deleteReactionForIssue({
+            accessToken: req.session.user?.accessToken,
+            ...body,
+          })
+        : github.deleteReactionForComment({
+            accessToken: req.session.user?.accessToken,
+            ...body,
+          })
+      const response = await promise
+      res.status(response.status).send(response.data)
     }
   },
   sessionOptions,

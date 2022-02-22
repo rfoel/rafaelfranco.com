@@ -7,8 +7,7 @@ import { SWRConfig } from 'swr'
 
 import PostHeader from '../../components/PostHeader'
 import usePosts from '../../hooks/usePosts'
-import { authenticate, searchIssues } from '../../services/github'
-import { Post } from '../../types'
+import { searchIssues } from '../../services/github'
 
 const Container = styled.div`
   width: 100%;
@@ -19,12 +18,13 @@ const Thumbnail = styled.div`
   box-shadow: 0.25rem 0.25rem var(--red);
   cursor: pointer;
   margin-bottom: 16px;
-  padding: 16px;
   width: 100%;
 `
 
 const Posts = () => {
   const { data } = usePosts()
+
+  if (!data) return null
 
   return (
     <>
@@ -32,12 +32,12 @@ const Posts = () => {
         <title>rfoel.dev | Blog</title>
       </Head>
       <Container>
-        {data?.map((post: Post) => {
-          const slug = slugify(post.title.toLowerCase())
+        {data.search?.nodes?.map((node) => {
+          const slug = slugify(node.title.toLowerCase())
           return (
             <Link key={slug} href={`blog/${slug}`} passHref>
               <Thumbnail>
-                <PostHeader {...post} />
+                <PostHeader {...node} />
               </Thumbnail>
             </Link>
           )
@@ -51,12 +51,6 @@ const BlogIndex: React.FC<{
   auth: { accessToken: string; login: string }
   fallback: Record<string, unknown>
 }> = (props) => {
-  if (typeof window !== 'undefined' && props.auth) {
-    localStorage.setItem('accessToken', props.auth.accessToken)
-    localStorage.setItem('login', props.auth.login)
-    window.close()
-  }
-
   return (
     <SWRConfig value={{ fallback: props.fallback }}>
       <Posts />
@@ -64,19 +58,11 @@ const BlogIndex: React.FC<{
   )
 }
 
-export const getServerSideProps: GetServerSideProps = async (req) => {
-  const { code } = req.query
-
-  let auth
-  if (typeof code === 'string') {
-    auth = await authenticate(code)
-  }
-
+export const getServerSideProps: GetServerSideProps = async () => {
   const posts = await searchIssues()
 
   return {
     props: {
-      ...(auth && { auth }),
       fallback: {
         [`/api/blog`]: posts,
       },

@@ -5,6 +5,8 @@ import { ghcolors } from 'react-syntax-highlighter/dist/cjs/styles/prism'
 import emoji from 'remark-emoji'
 import styled, { css } from 'styled-components'
 
+import Anchor from './Anchor'
+
 const Container = styled.div<{ isPost?: boolean }>(
   ({ isPost, theme: { colors } }) => css`
     p,
@@ -54,6 +56,13 @@ const Markdown: React.FC<{ isPost?: boolean }> = (props) => (
   <Container isPost={props.isPost}>
     <ReactMarkdown
       components={{
+        a({ children, href }) {
+          return (
+            <Anchor href={href} target="_blank">
+              {children}
+            </Anchor>
+          )
+        },
         code({ inline, className, children }) {
           const match = /language-(\w+)/.exec(className || '')
           return !inline ? (

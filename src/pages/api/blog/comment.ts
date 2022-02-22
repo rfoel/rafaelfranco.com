@@ -6,9 +6,10 @@ import { sessionOptions } from '../../../utils/session'
 
 const postComment = withIronSessionApiRoute(
   async (req: NextApiRequest, res: NextApiResponse): Promise<void> => {
+    const body = JSON.parse(req.body)
     const response = await comment({
       accessToken: req.session.user?.accessToken,
-      ...JSON.parse(req.body),
+      ...body,
     })
     res.status(response.status).send('')
   },

@@ -7,9 +7,9 @@ import styled from 'styled-components'
 import { SWRConfig } from 'swr'
 import 'dayjs/locale/pt-br'
 
-import Badge from '../../components/Badge'
 import Comment from '../../components/Comment'
 import Comments from '../../components/Comments'
+import Label from '../../components/Label'
 import Markdown from '../../components/Markdown'
 import PostHeader from '../../components/PostHeader'
 import Reactions from '../../components/Reactions'
@@ -45,32 +45,38 @@ const Post: React.FC<{ OAuthUrl: string }> = ({ OAuthUrl }) => {
 
   if (!data) return null
 
+  const [node] = data.search.nodes
+
+  if (!node) return null
+
   return (
     <>
       <Head>
-        <title>rfoel.dev | {data.title}</title>
+        <title>rfoel.dev | {node.title}</title>
       </Head>
       <Container>
-        <PostHeader {...data} />
+        <PostHeader {...node} />
         <Labels>
-          {data.labels.map((label) => (
-            <Badge key={label.name} {...label} />
-          ))}
+          {node.labels.nodes
+            .filter((label) => label.name !== 'blog')
+            .map((label) => (
+              <Label key={label.name} {...label} />
+            ))}
         </Labels>
         <Body>
-          <Markdown isPost>{data.body}</Markdown>
+          <Markdown isPost>{node.body}</Markdown>
         </Body>
         <Reactions
-          issueNumber={data.issueNumber}
+          issueNumber={node.number}
           hideEmptyReactions={false}
-          reactions={data.reactions}
+          reactions={node.reactions.nodes}
           OAuthUrl={OAuthUrl}
         />
         <CommentSection>
-          <Comment issueNumber={data.issueNumber} OAuthUrl={OAuthUrl} />
+          <Comment issueNumber={node.number} OAuthUrl={OAuthUrl} />
           <Comments
-            comments={data.comments}
-            totalComments={data.totalComments}
+            comments={node.comments.nodes}
+            totalComments={node.comments.totalCount}
             OAuthUrl={OAuthUrl}
           />
         </CommentSection>

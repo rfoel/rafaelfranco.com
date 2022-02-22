@@ -2,7 +2,7 @@ import dayjs from 'dayjs'
 import { darken, lighten } from 'polished'
 import styled, { css } from 'styled-components'
 
-import { Comment } from '../types'
+import { CommentsNode } from '../types'
 
 import Markdown from './Markdown'
 import Reactions from './Reactions'
@@ -59,7 +59,7 @@ const Footer = styled.div(
 )
 
 const Comments: React.FC<{
-  comments: Comment[]
+  comments: CommentsNode[]
   OAuthUrl: string
   totalComments: number
 }> = ({ comments, OAuthUrl, totalComments }) => (
@@ -68,19 +68,19 @@ const Comments: React.FC<{
       {totalComments} comentário{totalComments === 1 ? '' : 's'}
     </h3>
     {comments.map((comment) => (
-      <Container key={comment.id}>
+      <Container key={comment.databaseId}>
         <Header>
-          <Avatar src={comment.avatar} />
-          <span>{comment.author}</span>
+          <Avatar src={comment.author.avatarUrl} />
+          <span>{comment.author.login}</span>
           <span>{dayjs(comment.createdAt).format('DD [de] MMMM, YYYY')}</span>
         </Header>
-        <Body key={comment.createdAt}>
+        <Body>
           <Markdown>{comment.body}</Markdown>
         </Body>
         <Footer>
           <Reactions
-            commentId={comment.id}
-            reactions={comment.reactions}
+            commentId={comment.databaseId}
+            reactions={comment.reactions.nodes}
             OAuthUrl={OAuthUrl}
           />
         </Footer>

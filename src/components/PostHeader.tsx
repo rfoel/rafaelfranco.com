@@ -3,7 +3,7 @@ import readingTime from 'reading-time'
 import styled from 'styled-components'
 import 'dayjs/locale/pt-br'
 
-import { Post } from '../types'
+import { SummaryIssuesNode } from '../types'
 
 dayjs.locale('pt-br')
 
@@ -16,15 +16,15 @@ const Header = styled.div`
   }
 `
 
-const PostHeader = ({ bodyText, createdAt, title }: Post) => {
-  const readTime = readingTime(bodyText)
+const PostHeader: React.FC<SummaryIssuesNode> = (props) => {
+  const readTime = readingTime(props.bodyText)
   const minutes = Math.ceil(readTime.minutes)
 
   return (
     <Header>
-      <h3>{title}</h3>
+      <h3>{props.title}</h3>
       <div>
-        {dayjs(createdAt).format('D [de] MMMM, YYYY')} — {minutes}{' '}
+        {dayjs(props.createdAt).format('D [de] MMMM, YYYY')} — {minutes}{' '}
         {minutes === 1 ? 'minuto' : 'minutos'} de leitura
       </div>
     </Header>

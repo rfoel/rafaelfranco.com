@@ -1,7 +1,5 @@
 import * as sst from '@serverless-stack/resources'
-import * as cloudfront from 'aws-cdk-lib/aws-cloudfront'
 import { AllowedMethods } from 'aws-cdk-lib/aws-cloudfront'
-import * as origins from 'aws-cdk-lib/aws-cloudfront-origins'
 
 const {
   CLIENT_ID,

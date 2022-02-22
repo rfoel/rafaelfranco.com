@@ -101,7 +101,7 @@ const MenuBarContainer = styled.div(
     background-color: ${darken(0.05, colors.bgDefault)};
     display: flex;
     justify-content: flex-start;
-    padding: 8px 16px;
+    padding: 8px;
   `,
 )
 

@@ -1,13 +1,13 @@
 import styled, { css } from 'styled-components'
 
 const Anchor = styled.a<{ active?: boolean }>(
-  ({ active }) => css`
-    color: var(--blue);
+  ({ active, theme: { colors } }) => css`
+    color: ${colors.bgPrimary};
     cursor: pointer;
     text-decoration: none;
 
     :visited {
-      color: var(--blue);
+      color: ${colors.bgPrimary};
     }
 
     :hover {

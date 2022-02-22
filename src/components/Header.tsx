@@ -29,7 +29,7 @@ const Nav = styled.nav`
   }
 `
 
-const Header = () => {
+const Header: React.FC = () => {
   const router = useRouter()
 
   return (
