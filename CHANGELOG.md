@@ -1,3 +1,10 @@
+## [2.2.2](https://github.com/rfoel/rfoel.dev/compare/v2.2.1...v2.2.2) (2022-02-22)
+
+
+### Bug Fixes
+
+* fix rewrites ([5fead9a](https://github.com/rfoel/rfoel.dev/commit/5fead9a05a9f295747fc14229a57fc914aa4ae9d))
+
 ## [2.2.1](https://github.com/rfoel/rfoel.dev/compare/v2.2.0...v2.2.1) (2022-02-22)
 
 
