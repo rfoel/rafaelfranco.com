@@ -6,6 +6,8 @@ import { sessionOptions } from '../../../utils/session'
 
 const reaction = withIronSessionApiRoute(
   async (req: NextApiRequest, res: NextApiResponse): Promise<void> => {
+    console.log(req)
+    console.log(res)
     if (req.method === 'POST') {
       const response = await github.addReaction({
         accessToken: req.session.user?.accessToken,

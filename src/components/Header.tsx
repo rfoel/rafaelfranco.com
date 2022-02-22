@@ -12,6 +12,10 @@ const Container = styled.div`
   max-width: 700px;
   padding: 32px;
   width: 100%;
+
+  @media only screen and (max-width: 600px) {
+    padding: 16px;
+  }
 `
 
 const Nav = styled.nav`

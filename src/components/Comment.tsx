@@ -29,6 +29,7 @@ const EditorContainer = styled.div(
   ({ theme: { colors } }) => css`
     border: 1px solid ${darken(0.1, colors.bgDefault)};
     border-radius: 8px !important;
+    font-size: 16px;
     cursor: text;
     flex: 1 0 100%;
     margin-bottom: 16px;
@@ -115,19 +116,19 @@ const MenuBar: React.FC<{ editor: Editor | null }> = ({ editor }) => {
         active={editor.isActive('bold')}
         onClick={() => editor.chain().focus().toggleBold().run()}
       >
-        <Icon name="bold" />
+        <Icon name="bold" size={14} />
       </MenuButton>
       <MenuButton
         active={editor.isActive('italic')}
         onClick={() => editor.chain().focus().toggleItalic().run()}
       >
-        <Icon name="italic" />
+        <Icon name="italic" size={14} />
       </MenuButton>
       <MenuButton
         active={editor.isActive('codeBlock')}
         onClick={() => editor.chain().focus().toggleCodeBlock().run()}
       >
-        <Icon name="code" />
+        <Icon name="code" size={14} />
       </MenuButton>
     </MenuBarContainer>
   )

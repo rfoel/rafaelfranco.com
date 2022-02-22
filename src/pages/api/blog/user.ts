@@ -5,6 +5,8 @@ import { User } from '../../../types'
 import { sessionOptions } from '../../../utils/session'
 
 const userRoute = (req: NextApiRequest, res: NextApiResponse<User>) => {
+  console.log(req)
+  console.log(res)
   if (req.session.user) {
     res.json({
       ...req.session.user,

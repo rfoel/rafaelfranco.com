@@ -20,7 +20,7 @@ const Body = styled.div`
   background-color: #ffffff;
   width: 100%;
 
-  @media only screen and (min-width: 600px) {
+  @media only screen and (max-width: 600px) {
     padding: 16px;
   }
 `

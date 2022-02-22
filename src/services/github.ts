@@ -1,65 +1,62 @@
 import { Octokit } from '@octokit/core'
 import type { Endpoints, OctokitResponse } from '@octokit/types'
-import { SSM } from 'aws-sdk'
-import got from 'got'
 import { gql } from 'graphql-request'
 
 import type { Issues, Post } from '../types'
 
-const ssm = new SSM({ region: process.env.REGION })
-
 let blogOctokit: Octokit
 let userOctokit: Octokit
 
+const domain =
+  process.env.STAGE === 'prod'
+    ? `https://${process.env.DOMAIN_NAME}`
+    : 'http://localhost:3000'
+
 export const getOAuthUrl = (): string =>
-  `https://github.com/login/oauth/authorize?client_id=${process.env.CLIENT_ID}`
+  `https://github.com/login/oauth/authorize?client_id=${process.env.CLIENT_ID}&redirect_uri=${domain}/blog/oauth`
 
 export const authenticate = async (
   code: string,
 ): Promise<{ accessToken: string; login: string }> => {
-  const { access_token } = await got
-    .post('https://github.com/login/oauth/access_token', {
-      json: {
+  const { access_token } = await fetch(
+    'https://github.com/login/oauth/access_token',
+    {
+      headers: {
+        Accept: 'application/json',
+        'Content-Type': 'application/json',
+      },
+      method: 'POST',
+      body: JSON.stringify({
         client_id: process.env.CLIENT_ID,
         client_secret: process.env.CLIENT_SECRET,
         code: code,
-      },
-    })
-    .json()
+      }),
+    },
+  ).then((response) => response.json())
 
-  const { login } = await got
-    .get('https://api.github.com/user', {
-      headers: {
-        Authorization: `Bearer ${access_token}`,
-      },
-    })
-    .json()
+  const { login } = await fetch('https://api.github.com/user', {
+    headers: {
+      Accept: 'application/json',
+      Authorization: `Bearer ${access_token}`,
+      'Content-Type': 'application/json',
+    },
+  }).then((response) => response.json())
 
   return { accessToken: access_token, login }
 }
 
-const initBlogOctokit = async () => {
+const initBlogOctokit = () => {
   if (blogOctokit) return
-
-  const { Parameter } = await ssm
-    .getParameter({
-      Name: `/${process.env.STAGE}/personalAccessToken`,
-    })
-    .promise()
-
-  if (Parameter?.Value) {
-    blogOctokit = new Octokit({ auth: Parameter.Value })
-  }
+  blogOctokit = new Octokit({ auth: process.env.PERSONAL_ACCESS_TOKEN })
 }
 
 const initUserOctokit = (accessToken: string) => {
   if (userOctokit) return
-
   userOctokit = new Octokit({ auth: accessToken })
 }
 
 export const searchIssues = async (): Promise<Post[]> => {
-  await initBlogOctokit()
+  initBlogOctokit()
 
   const query = gql`
     query {
@@ -85,8 +82,7 @@ export const searchIssues = async (): Promise<Post[]> => {
 }
 
 export const searchIssue = async (slug: string): Promise<Post> => {
-  await initBlogOctokit()
-
+  initBlogOctokit()
   const query = gql`
     query ($queryString: String!) {
       search(first: 1, query: $queryString, type: ISSUE) {

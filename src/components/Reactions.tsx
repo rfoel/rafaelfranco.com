@@ -12,6 +12,9 @@ import Icon from './Icon'
 
 const Container = styled.div`
   display: flex;
+  flex-wrap: wrap;
+  white-space: nowrap;
+  width: auto;
 `
 
 const Reaction = styled.div<{ active?: boolean }>(
@@ -24,6 +27,7 @@ const Reaction = styled.div<{ active?: boolean }>(
     font-family: monospace;
     font-size: 14px;
     justify-content: center;
+    margin-bottom: 8px;
     margin-right: 8px;
     min-height: 32px;
     padding: 4px 8px;
