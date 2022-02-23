@@ -1,3 +1,10 @@
+# [2.3.0](https://github.com/rfoel/rfoel.dev/compare/v2.2.3...v2.3.0) (2022-02-23)
+
+
+### Features
+
+* add sitemap endpoint ([0aef249](https://github.com/rfoel/rfoel.dev/commit/0aef24976c75cc55571f4a96dbe6efda57acb241))
+
 ## [2.2.3](https://github.com/rfoel/rfoel.dev/compare/v2.2.2...v2.2.3) (2022-02-22)
 
 
