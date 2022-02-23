@@ -1,6 +1,8 @@
 {
-  "name": "",
-  "short_name": "",
+  "name": "rfoel.dev",
+  "short_name": "rfoel.dev",
+  "description": "Rafael Franco homepage e blog",
+  "start_url": ".",
   "icons": [
     {
       "src": "/android-chrome-192x192.png",

@@ -10,14 +10,3 @@ updates:
     commit-message:
       prefix: fix
       prefix-development: chore
-
-  - package-ecosystem: npm
-    directory: /src
-    schedule:
-      interval: daily
-      time: '08:00'
-    open-pull-requests-limit: 10
-    target-branch: develop
-    commit-message:
-      prefix: fix
-      prefix-development: chore

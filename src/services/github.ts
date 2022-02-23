@@ -1,7 +1,7 @@
 import { Octokit } from '@octokit/core'
 import type { Endpoints, OctokitResponse } from '@octokit/types'
 
-import type { Issues, SummaryIssues } from '../types'
+import type { IssuesData, SummaryIssuesData } from '../types'
 
 let blogOctokit: Octokit
 let userOctokit: Octokit
@@ -54,7 +54,7 @@ const initUserOctokit = (accessToken: string) => {
   userOctokit = new Octokit({ auth: accessToken })
 }
 
-export const searchIssues = async (): Promise<SummaryIssues> => {
+export const searchIssues = async (): Promise<SummaryIssuesData> => {
   initBlogOctokit()
   const query = `
     query {
@@ -74,10 +74,10 @@ export const searchIssues = async (): Promise<SummaryIssues> => {
     }
   `
 
-  return blogOctokit.graphql<SummaryIssues>(query)
+  return blogOctokit.graphql<SummaryIssuesData>(query)
 }
 
-export const searchIssue = async (slug: string): Promise<Issues> => {
+export const searchIssue = async (slug: string): Promise<IssuesData> => {
   initBlogOctokit()
   const query = `
     query ($queryString: String!) {
@@ -135,7 +135,7 @@ export const searchIssue = async (slug: string): Promise<Issues> => {
     }
   `
 
-  return blogOctokit.graphql<Issues>(query, {
+  return blogOctokit.graphql<IssuesData>(query, {
     queryString: `repo:rfoel/rfoel.dev label:blog "${slug}"`,
   })
 }

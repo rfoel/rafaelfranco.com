@@ -1,5 +1,4 @@
 import * as sst from '@serverless-stack/resources'
-import { AllowedMethods } from 'aws-cdk-lib/aws-cloudfront'
 
 const {
   CLIENT_ID,
@@ -20,9 +19,6 @@ export default class App extends sst.Stack {
       customDomain: {
         domainName,
         hostedZone: DOMAIN_NAME,
-      },
-      cfDistribution: {
-        defaultBehavior: { allowedMethods: AllowedMethods.ALLOW_ALL },
       },
       environment: {
         CLIENT_ID,
