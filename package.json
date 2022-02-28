@@ -17,7 +17,7 @@
     "@semantic-release/npm": "^9.0.0",
     "@semantic-release/release-notes-generator": "^10.0.3",
     "@serverless-stack/cli": "^0.65.4",
-    "@serverless-stack/resources": "^0.65.4",
+    "@serverless-stack/resources": "^0.66.0",
     "@sls-next/lambda-at-edge": "^3.7.0-alpha.7",
     "@typescript-eslint/eslint-plugin": "^5.12.1",
     "@typescript-eslint/parser": "^5.12.1",
