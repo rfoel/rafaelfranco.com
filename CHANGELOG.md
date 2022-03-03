@@ -1,3 +1,10 @@
+## [2.3.1](https://github.com/rfoel/rfoel.dev/compare/v2.3.0...v2.3.1) (2022-03-03)
+
+
+### Bug Fixes
+
+* update dependencies ([c236ba4](https://github.com/rfoel/rfoel.dev/commit/c236ba4238f585adae594c461e02cb09f382eb52))
+
 # [2.3.0](https://github.com/rfoel/rfoel.dev/compare/v2.2.3...v2.3.0) (2022-02-23)
 
 
