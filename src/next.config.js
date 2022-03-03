@@ -1,12 +1,4 @@
 module.exports = {
-  rewrites() {
-    return [
-      {
-        source: '/sitemap.xml',
-        destination: '/api/sitemap',
-      },
-    ]
-  },
   env: {
     CLIENT_ID: process.env.CLIENT_ID,
     CLIENT_SECRET: process.env.CLIENT_SECRET,
@@ -15,5 +7,13 @@ module.exports = {
     REGION: process.env.REGION,
     SECRET_COOKIE_PASSWORD: process.env.SECRET_COOKIE_PASSWORD,
     STAGE: process.env.STAGE,
+  },
+  rewrites() {
+    return [
+      {
+        source: '/sitemap.xml',
+        destination: '/api/sitemap',
+      },
+    ]
   },
 }
