@@ -4045,10 +4045,10 @@
     typescript "^4.4.3"
     zip-local "^0.3.4"
 
-"@serverless-stack/static-site-env@^0.65.4":
-  version "0.65.4"
-  resolved "https://registry.yarnpkg.com/@serverless-stack/static-site-env/-/static-site-env-0.65.4.tgz#9d44ae08e8a884d96ec8ac92ad5f10375aad7906"
-  integrity sha512-t8FQL7soN0tIptSF6hKqC9igQd0Z8ZOB7Pvg7kdRCxnJaIxlfgWRmuL2c2srtOgGDV8nQxAC1v4CR6BqZZllbw==
+"@serverless-stack/static-site-env@^0.67.0":
+  version "0.67.0"
+  resolved "https://registry.yarnpkg.com/@serverless-stack/static-site-env/-/static-site-env-0.67.0.tgz#1a052411299c937fc195baed169ae1effff3c02b"
+  integrity sha512-hxdtPJPaq39NvEvinodZCyOktTQlFjX2oM/HktVHFouMmV2/eiCaZXyj/U86PdxqbjMQ6OYIXRq+5Y7GPXZE9w==
   dependencies:
     cross-spawn "^7.0.3"
     fs-extra "^9.0.1"
