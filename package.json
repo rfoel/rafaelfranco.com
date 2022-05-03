@@ -19,7 +19,7 @@
     "@serverless-stack/cli": "^0.65.4",
     "@serverless-stack/resources": "^0.65.4",
     "@sls-next/lambda-at-edge": "^3.7.0-alpha.7",
-    "@typescript-eslint/eslint-plugin": "^5.12.1",
+    "@typescript-eslint/eslint-plugin": "^5.22.0",
     "@typescript-eslint/parser": "^5.12.1",
     "aws-cdk-lib": "2.7.0",
     "eslint": "^8.9.0",
