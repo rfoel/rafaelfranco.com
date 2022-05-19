@@ -53,20 +53,40 @@
     http-errors "^1.7.3"
     object-path "^0.11.4"
 
+"@aws-cdk/aws-apigatewayv2-alpha@2.24.0-alpha.0":
+  version "2.24.0-alpha.0"
+  resolved "https://registry.yarnpkg.com/@aws-cdk/aws-apigatewayv2-alpha/-/aws-apigatewayv2-alpha-2.24.0-alpha.0.tgz#d6058e56a01234776ee005c2ea122b226f268a2f"
+  integrity sha512-0Ajo4ENUh8RNorG66p1AfLkBAtZJkcxGsgyfz9PbvBAYl0OjpB7ALjEXS2+lrdMMJ8Ewhuhdqut7XfQYhyXtkA==
+
 "@aws-cdk/aws-apigatewayv2-alpha@2.7.0-alpha.0":
   version "2.7.0-alpha.0"
   resolved "https://registry.yarnpkg.com/@aws-cdk/aws-apigatewayv2-alpha/-/aws-apigatewayv2-alpha-2.7.0-alpha.0.tgz#bd0033078f898717f50a6849407d253b0a9be07f"
   integrity sha512-NHm+Jet4Iz1YDEo7lik4ItfGU1w97jCqNKilET0kcPndtxynDJNVpD1O0ycOb9L6hhLtpT5I7Llutt9Dy5gjYA==
+
+"@aws-cdk/aws-apigatewayv2-authorizers-alpha@2.24.0-alpha.0":
+  version "2.24.0-alpha.0"
+  resolved "https://registry.yarnpkg.com/@aws-cdk/aws-apigatewayv2-authorizers-alpha/-/aws-apigatewayv2-authorizers-alpha-2.24.0-alpha.0.tgz#122e74fa8c33b72076358ca647e8fe686ba61c15"
+  integrity sha512-h4SQiquBB6MQ1v6MrnlVaK68OLp6zn3NAMnORZh20qd44EgQhRmqClCLFvXRCt1o/kN/CferGFepPXy64qLyOQ==
 
 "@aws-cdk/aws-apigatewayv2-authorizers-alpha@2.7.0-alpha.0":
   version "2.7.0-alpha.0"
   resolved "https://registry.yarnpkg.com/@aws-cdk/aws-apigatewayv2-authorizers-alpha/-/aws-apigatewayv2-authorizers-alpha-2.7.0-alpha.0.tgz#811c0ff6e2aebd9897c20a87b4db8ee4ffd66305"
   integrity sha512-03VMs0IKvcm5xLan0PI+gczSQZfmYBJruqjB5Fn+VvH57kU7vu75Kgjs6gUc6CpoI38MH7QdamLs9eP9AvL/HQ==
 
+"@aws-cdk/aws-apigatewayv2-integrations-alpha@2.24.0-alpha.0":
+  version "2.24.0-alpha.0"
+  resolved "https://registry.yarnpkg.com/@aws-cdk/aws-apigatewayv2-integrations-alpha/-/aws-apigatewayv2-integrations-alpha-2.24.0-alpha.0.tgz#6b938467b4622c25181c05ae626aa6f0b667b77f"
+  integrity sha512-hDP1VQpYKmdgFXwron6weZlo4NV1qTQ6TJ5cRZl+JfOnWhsE6zcTiNog+U45ZQNLkQt7Is6JzdmB7+4Fpc0aLw==
+
 "@aws-cdk/aws-apigatewayv2-integrations-alpha@2.7.0-alpha.0":
   version "2.7.0-alpha.0"
   resolved "https://registry.yarnpkg.com/@aws-cdk/aws-apigatewayv2-integrations-alpha/-/aws-apigatewayv2-integrations-alpha-2.7.0-alpha.0.tgz#bbc9d9f1684fabac6ee12d5138675e00617e63cc"
   integrity sha512-QayWlBXdnAXjDghrYHO/vHsViPx/mLb2Tx5xdGM5sgIICNAnnY3WBbZZC4WLIli3bnc22cxwFWGCWHuM/vfj5A==
+
+"@aws-cdk/aws-appsync-alpha@2.24.0-alpha.0":
+  version "2.24.0-alpha.0"
+  resolved "https://registry.yarnpkg.com/@aws-cdk/aws-appsync-alpha/-/aws-appsync-alpha-2.24.0-alpha.0.tgz#bbb06d22984eeac90fbaea7ef5a6931a1b7add2b"
+  integrity sha512-kqv6mRXySBcQtAvHlumunJ7bWll38u8SP6ZSOPHS84uzu9BGhasIi3cFDdNNxvSqnN2eOJHoGf2LQJE4cPKxrw==
 
 "@aws-cdk/aws-appsync-alpha@2.7.0-alpha.0":
   version "2.7.0-alpha.0"
@@ -3929,6 +3949,14 @@
     node-addon-api "3.2.1"
     node-gyp "8.1.0"
 
+"@serverless-stack/aws-lambda-ric@^2.0.13":
+  version "2.0.13"
+  resolved "https://registry.yarnpkg.com/@serverless-stack/aws-lambda-ric/-/aws-lambda-ric-2.0.13.tgz#8e2397479a19318795a99bc4ab3058e97ca002cc"
+  integrity sha512-Aj4X2wMW6O5/PQoKoBdQGC3LwQyGTgW1XZtF0rs07WE9s6Q+46zWaVgURQjoNmTNQKpHSGJYo6B+ycp9u7/CSA==
+  dependencies:
+    node-addon-api "3.2.1"
+    node-gyp "8.1.0"
+
 "@serverless-stack/cli@^0.65.4":
   version "0.65.4"
   resolved "https://registry.yarnpkg.com/@serverless-stack/cli/-/cli-0.65.4.tgz#29186bd53cd06085f75eb77e492acf6a028401e4"
@@ -3977,6 +4005,39 @@
     typescript "^4.4.3"
     ws "^7.4.0"
     yargs "^15.4.1"
+
+"@serverless-stack/core@1.1.2":
+  version "1.1.2"
+  resolved "https://registry.yarnpkg.com/@serverless-stack/core/-/core-1.1.2.tgz#e50be2136f908e5448c322ca94e2aed1cc8a942a"
+  integrity sha512-Nf5z7IsyuHuqm42ZTQga78jtTclPLEvdad4UzjEriUGmUNZ9amdmUE3FHzl3Rnr+vyr0nBAv2FSyVrfO8WEkyQ==
+  dependencies:
+    "@serverless-stack/aws-lambda-ric" "^2.0.13"
+    "@trpc/server" "^9.16.0"
+    async-retry "^1.3.3"
+    aws-cdk "2.24.0"
+    aws-cdk-lib "2.24.0"
+    aws-sdk "^2.1110.0"
+    chalk "^4.1.0"
+    chokidar "^3.5.2"
+    ci-info "^3.3.0"
+    conf "^10.1.1"
+    constructs "^10.0.29"
+    cross-spawn "^7.0.3"
+    dendriform-immer-patch-optimiser "^2.1.0"
+    dotenv "^10.0.0"
+    dotenv-expand "^5.1.0"
+    esbuild "^0.14.11"
+    express "^4.17.1"
+    fs-extra "^9.0.1"
+    immer "^9.0.7"
+    js-yaml "^4.1.0"
+    log4js "^6.3.0"
+    picomatch "^2.3.0"
+    remeda "^0.0.32"
+    typescript "^4.6.2"
+    uuid "^8.3.2"
+    xstate "4.26.1"
+    zod "^3.11.6"
 
 "@serverless-stack/core@^0.65.4":
   version "0.65.4"
@@ -4044,6 +4105,29 @@
     ts-jest "^26.1.4"
     typescript "^4.4.3"
     zip-local "^0.3.4"
+
+"@serverless-stack/resources@^1.1.2":
+  version "1.1.2"
+  resolved "https://registry.yarnpkg.com/@serverless-stack/resources/-/resources-1.1.2.tgz#47b551d6cdf524b82212231103d3bc900ccc06b2"
+  integrity sha512-G2OBb4XvJBq7qWmHHJEAyg+87xIpSXC+PanMcc9DKHI0tT85AamsJj4liTPfGMY4kwhwU3u7sJGSL+EaYYtpbg==
+  dependencies:
+    "@aws-cdk/aws-apigatewayv2-alpha" "2.24.0-alpha.0"
+    "@aws-cdk/aws-apigatewayv2-authorizers-alpha" "2.24.0-alpha.0"
+    "@aws-cdk/aws-apigatewayv2-integrations-alpha" "2.24.0-alpha.0"
+    "@aws-cdk/aws-appsync-alpha" "2.24.0-alpha.0"
+    "@graphql-tools/load-files" "^6.3.2"
+    "@graphql-tools/merge" "^6.2.14"
+    "@serverless-stack/core" "1.1.2"
+    archiver "^5.3.0"
+    aws-cdk-lib "2.24.0"
+    chalk "^4.1.0"
+    constructs "^10.0.29"
+    cross-spawn "^7.0.3"
+    fs-extra "^9.0.1"
+    glob "^7.1.7"
+    graphql "^16.5.0"
+    zip-local "^0.3.4"
+    zod "^3.14.3"
 
 "@serverless-stack/static-site-env@^0.65.4":
   version "0.65.4"
@@ -5693,6 +5777,21 @@ available-typed-arrays@^1.0.5:
   resolved "https://registry.yarnpkg.com/available-typed-arrays/-/available-typed-arrays-1.0.5.tgz#92f95616501069d07d10edb2fc37d3e1c65123b7"
   integrity sha512-DMD0KiN46eipeziST1LPP/STfDU0sufISXmjSgvVsoU2tqxctQeASejWcfNtxYKqETM1UxQ8sp2OrSBWpHY6sw==
 
+aws-cdk-lib@2.24.0:
+  version "2.24.0"
+  resolved "https://registry.yarnpkg.com/aws-cdk-lib/-/aws-cdk-lib-2.24.0.tgz#d942f967530f089e4e41f965c88a8d275a7cde3f"
+  integrity sha512-icYISk6uddpBDe2csqIpZ0PPo8ryg8Polyxyh9ri6rmRIElOJIkBmTpJc7ORcP9vv9LjFIH6BRV7OltUxpcWUg==
+  dependencies:
+    "@balena/dockerignore" "^1.0.2"
+    case "1.6.3"
+    fs-extra "^9.1.0"
+    ignore "^5.2.0"
+    jsonschema "^1.4.0"
+    minimatch "^3.1.2"
+    punycode "^2.1.1"
+    semver "^7.3.7"
+    yaml "1.10.2"
+
 aws-cdk-lib@2.7.0:
   version "2.7.0"
   resolved "https://registry.yarnpkg.com/aws-cdk-lib/-/aws-cdk-lib-2.7.0.tgz#f6a2b83355781ef3d55e9e6a9112a2819a24699c"
@@ -5707,6 +5806,13 @@ aws-cdk-lib@2.7.0:
     punycode "^2.1.1"
     semver "^7.3.5"
     yaml "1.10.2"
+
+aws-cdk@2.24.0:
+  version "2.24.0"
+  resolved "https://registry.yarnpkg.com/aws-cdk/-/aws-cdk-2.24.0.tgz#e46cc2372b232b4c1b1f52b047b2dea4424f9461"
+  integrity sha512-XqAyD2WIaKnglUPlePt6c7WMICemo6Rl9RPnKqI0IKnnzTORuXHyVw9i6F9S0jNV31iDw2uxZPDUfcZ83owq/Q==
+  optionalDependencies:
+    fsevents "2.3.2"
 
 aws-cdk@2.7.0:
   version "2.7.0"
@@ -5744,6 +5850,21 @@ aws-sdk@^2.1077.0:
   version "2.1077.0"
   resolved "https://registry.yarnpkg.com/aws-sdk/-/aws-sdk-2.1077.0.tgz#d4a391d38ede867fe9a88f31555f09a338dfdf4e"
   integrity sha512-orJvJROs8hJaQRfHsX7Zl5PxEgrD/uTXyqXz9Yu9Io5VVxzvnOty9oHmvEMSlgTIf1qd01gnev/vpvP1HgzKtw==
+  dependencies:
+    buffer "4.9.2"
+    events "1.1.1"
+    ieee754 "1.1.13"
+    jmespath "0.16.0"
+    querystring "0.2.0"
+    sax "1.2.1"
+    url "0.10.3"
+    uuid "3.3.2"
+    xml2js "0.4.19"
+
+aws-sdk@^2.1110.0:
+  version "2.1138.0"
+  resolved "https://registry.yarnpkg.com/aws-sdk/-/aws-sdk-2.1138.0.tgz#5975e028807a327e0900075de6a054fdd939a1f0"
+  integrity sha512-81Bs7qVf1/NrZBDCVIPpynODNN8fvXLdbsK024VITKFjts6DpvWjWPCsRYvEtaksF6uypMx5D02nTYJ8RiXq9w==
   dependencies:
     buffer "4.9.2"
     events "1.1.1"
@@ -8769,7 +8890,7 @@ fs.realpath@^1.0.0:
   resolved "https://registry.yarnpkg.com/fs.realpath/-/fs.realpath-1.0.0.tgz#1504ad2523158caa40db4a2787cb01411994ea4f"
   integrity sha1-FQStJSMVjKpA20onh8sBQRmU6k8=
 
-fsevents@^2.1.2, fsevents@^2.3.2, fsevents@~2.3.1, fsevents@~2.3.2:
+fsevents@2.3.2, fsevents@^2.1.2, fsevents@^2.3.2, fsevents@~2.3.1, fsevents@~2.3.2:
   version "2.3.2"
   resolved "https://registry.yarnpkg.com/fsevents/-/fsevents-2.3.2.tgz#8a526f78b8fdf4623b709e0b975c52c24c02fd1a"
   integrity sha512-xiqMQR4xAeHTuB9uWm+fFRcIOgKBMiOBP+eXiyT7jsgVCq1bkVygt00oASowB7EdtpOHaaPgKt812P9ab+DDKA==
@@ -9086,10 +9207,10 @@ graphql@^15.5.1:
   resolved "https://registry.yarnpkg.com/graphql/-/graphql-15.8.0.tgz#33410e96b012fa3bdb1091cc99a94769db212b38"
   integrity sha512-5gghUc24tP9HRznNpV2+FIoq3xKkj5dTQqf4v0CpdPbFVwFkWoxOM+o+2OC9ZSvjEMTjfmG9QT+gcvggTwW1zw==
 
-graphql@^16.3.0:
-  version "16.3.0"
-  resolved "https://registry.yarnpkg.com/graphql/-/graphql-16.3.0.tgz#a91e24d10babf9e60c706919bb182b53ccdffc05"
-  integrity sha512-xm+ANmA16BzCT5pLjuXySbQVFwH3oJctUVdy81w1sV0vBU0KgDdBGtxQOUd5zqOBk/JayAFeG8Dlmeq74rjm/A==
+graphql@^16.3.0, graphql@^16.5.0:
+  version "16.5.0"
+  resolved "https://registry.yarnpkg.com/graphql/-/graphql-16.5.0.tgz#41b5c1182eaac7f3d47164fb247f61e4dfb69c85"
+  integrity sha512-qbHgh8Ix+j/qY+a/ZcJnFQ+j8ezakqPiHwPiZhV/3PgGlgf96QMBB5/f2rkiC9sgLoy/xvT6TSiaf2nTHJh5iA==
 
 growly@^1.3.0:
   version "1.3.0"
@@ -12079,6 +12200,13 @@ minimatch@>=3.0, minimatch@^3.0.4:
   dependencies:
     brace-expansion "^1.1.7"
 
+minimatch@^3.1.2:
+  version "3.1.2"
+  resolved "https://registry.yarnpkg.com/minimatch/-/minimatch-3.1.2.tgz#19cd194bfd3e428f049a70817c038d89ab4be35b"
+  integrity sha512-J7p63hRiAjw1NDEww1W7i37+ByIrOWO5XQQAzZ3VOcL0PNybwpfmV/N05zFAzwQ9USyEcX6t3UO+K5aqBQOIHw==
+  dependencies:
+    brace-expansion "^1.1.7"
+
 minimist-options@4.1.0:
   version "4.1.0"
   resolved "https://registry.yarnpkg.com/minimist-options/-/minimist-options-4.1.0.tgz#c0655713c53a8a2ebd77ffa247d342c40f010619"
@@ -14546,6 +14674,13 @@ semver@^6.0.0, semver@^6.1.1, semver@^6.1.2, semver@^6.3.0:
   resolved "https://registry.yarnpkg.com/semver/-/semver-6.3.0.tgz#ee0a64c8af5e8ceea67687b133761e1becbd1d3d"
   integrity sha512-b39TBaTSfV6yBrapU89p5fKekE2m/NwnDocOVruQFS1/veMgdzuPcnOM34M6CwxW8jH/lxEa5rBoDeUwu5HHTw==
 
+semver@^7.3.7:
+  version "7.3.7"
+  resolved "https://registry.yarnpkg.com/semver/-/semver-7.3.7.tgz#12c5b649afdbf9049707796e22a4028814ce523f"
+  integrity sha512-QlYTucUYOews+WeEujDoEGziz4K6c47V/Bd+LjSSYcA94p+DmINdf7ncaUinThfvZyu13lN9OY1XDxt8C0Tw0g==
+  dependencies:
+    lru-cache "^6.0.0"
+
 send@0.17.2:
   version "0.17.2"
   resolved "https://registry.yarnpkg.com/send/-/send-0.17.2.tgz#926622f76601c41808012c8bf1688fe3906f7820"
@@ -15759,10 +15894,10 @@ typedarray-to-buffer@^4.0.0:
   resolved "https://registry.yarnpkg.com/typedarray-to-buffer/-/typedarray-to-buffer-4.0.0.tgz#cdd2933c61dd3f5f02eda5d012d441f95bfeb50a"
   integrity sha512-6dOYeZfS3O9RtRD1caom0sMxgK59b27+IwoNy8RDPsmslSGOyU+mpTamlaIW7aNKi90ZQZ9DFaZL3YRoiSCULQ==
 
-typescript@^4.4.3, typescript@^4.5.5:
-  version "4.5.5"
-  resolved "https://registry.yarnpkg.com/typescript/-/typescript-4.5.5.tgz#d8c953832d28924a9e3d37c73d729c846c5896f3"
-  integrity sha512-TCTIul70LyWe6IJWT8QSYeA54WQe8EjQFU4wY52Fasj5UKx88LNYKCgBEHcOMOrFF1rKGbD8v/xcNWVUq9SymA==
+typescript@^4.4.3, typescript@^4.5.5, typescript@^4.6.2:
+  version "4.6.4"
+  resolved "https://registry.yarnpkg.com/typescript/-/typescript-4.6.4.tgz#caa78bbc3a59e6a5c510d35703f6a09877ce45e9"
+  integrity sha512-9ia/jWHIEbo49HfjrLGfKbZSuWo9iTMwXO+Ca3pRsSpbsMbc7/IU8NKdCZVRRBafVPGnoJeFL76ZOAA84I9fEg==
 
 uglify-js@^3.1.4:
   version "3.15.1"
@@ -16511,7 +16646,7 @@ zip-stream@^4.1.0:
     compress-commons "^4.1.0"
     readable-stream "^3.6.0"
 
-zod@^3.11.6:
-  version "3.11.6"
-  resolved "https://registry.yarnpkg.com/zod/-/zod-3.11.6.tgz#e43a5e0c213ae2e02aefe7cb2b1a6fa3d7f1f483"
-  integrity sha512-daZ80A81I3/9lIydI44motWe6n59kRBfNzTuS2bfzVh1nAXi667TOTWWtatxyG+fwgNUiagSj/CWZwRRbevJIg==
+zod@^3.11.6, zod@^3.14.3:
+  version "3.16.0"
+  resolved "https://registry.yarnpkg.com/zod/-/zod-3.16.0.tgz#edfdbf77fcc9a5af13a2630a44bdda5b90e759b7"
+  integrity sha512-szrIkryADbTM+xBt2a1KoS2CJQXec4f9xG78bj5MJeEH/XqmmHpnO+fG3IE115AKBJak+2HrbxLZkc9mhdbDKA==
