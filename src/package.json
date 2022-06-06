@@ -38,7 +38,7 @@
   },
   "devDependencies": {
     "@serverless-stack/static-site-env": "^0.65.4",
-    "@types/node": "^17.0.19",
+    "@types/node": "^17.0.40",
     "@types/react": "^17.0.39",
     "@types/react-dom": "^17.0.11",
     "@types/react-syntax-highlighter": "^13.5.2",
