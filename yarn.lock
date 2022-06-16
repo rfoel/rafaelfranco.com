@@ -5740,10 +5740,10 @@ aws-cdk@2.7.0:
     yaml "1.10.2"
     yargs "^16.2.0"
 
-aws-sdk@^2.1077.0:
-  version "2.1077.0"
-  resolved "https://registry.yarnpkg.com/aws-sdk/-/aws-sdk-2.1077.0.tgz#d4a391d38ede867fe9a88f31555f09a338dfdf4e"
-  integrity sha512-orJvJROs8hJaQRfHsX7Zl5PxEgrD/uTXyqXz9Yu9Io5VVxzvnOty9oHmvEMSlgTIf1qd01gnev/vpvP1HgzKtw==
+aws-sdk@^2.1155.0, aws-sdk@^2.761.0, aws-sdk@^2.848.0, aws-sdk@^2.979.0:
+  version "2.1155.0"
+  resolved "https://registry.yarnpkg.com/aws-sdk/-/aws-sdk-2.1155.0.tgz#baee24931a969a44496afc8eff5f6543518d5b75"
+  integrity sha512-H2QircO+R3/tx7DhRKYsGuj0YJcIY2N53U2gDExAmy34/oNAGUcS1eKB8DwTbpNPrnQgZzYDGBgHMTFWtN2XZA==
   dependencies:
     buffer "4.9.2"
     events "1.1.1"
@@ -5752,22 +5752,7 @@ aws-sdk@^2.1077.0:
     querystring "0.2.0"
     sax "1.2.1"
     url "0.10.3"
-    uuid "3.3.2"
-    xml2js "0.4.19"
-
-aws-sdk@^2.761.0, aws-sdk@^2.848.0, aws-sdk@^2.979.0:
-  version "2.1070.0"
-  resolved "https://registry.yarnpkg.com/aws-sdk/-/aws-sdk-2.1070.0.tgz#e7a27c34ed3a92776aa9128ed3469cb94bba9655"
-  integrity sha512-tkmuycoJ9k0qF1iq03iqyhevxP3l0OlrnUxjd0x8nZ9Ko1TGjyj0yJS4Vbd4r5RBpKUwRqedB7TAyZ/71mcZKw==
-  dependencies:
-    buffer "4.9.2"
-    events "1.1.1"
-    ieee754 "1.1.13"
-    jmespath "0.16.0"
-    querystring "0.2.0"
-    sax "1.2.1"
-    url "0.10.3"
-    uuid "3.3.2"
+    uuid "8.0.0"
     xml2js "0.4.19"
 
 axe-core@^4.3.5:
@@ -16041,10 +16026,10 @@ utils-merge@1.0.1:
   resolved "https://registry.yarnpkg.com/utils-merge/-/utils-merge-1.0.1.tgz#9f95710f50a267947b2ccc124741c1028427e713"
   integrity sha1-n5VxD1CiZ5R7LMwSR0HBAoQn5xM=
 
-uuid@3.3.2:
-  version "3.3.2"
-  resolved "https://registry.yarnpkg.com/uuid/-/uuid-3.3.2.tgz#1b4af4955eb3077c501c23872fc6513811587131"
-  integrity sha512-yXJmeNaw3DnnKAOKJE51sL/ZaYfWJRl1pK9dr19YFCu0ObS231AB1/LbqTKRAQ5kw8A90rA6fr4riOUpTZvQZA==
+uuid@8.0.0:
+  version "8.0.0"
+  resolved "https://registry.yarnpkg.com/uuid/-/uuid-8.0.0.tgz#bc6ccf91b5ff0ac07bbcdbf1c7c4e150db4dbb6c"
+  integrity sha512-jOXGuXZAWdsTH7eZLtyXMqUb9EcWMGZNbL9YcGBJl4MH4nrxHmZJhEHvyLFrkxo+28uLb/NYRcStH48fnD0Vzw==
 
 uuid@^3.1.0:
   version "3.4.0"
