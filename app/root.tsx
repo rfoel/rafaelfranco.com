@@ -21,7 +21,7 @@ export const links: LinksFunction = () => {
     },
     {
       rel: 'icon',
-      href: '/favicon.icon',
+      href: '/favicon.ico',
     },
     {
       href: '/favicon-16x16.png',

@@ -116,7 +116,6 @@ resources:
         DistributionConfig:
           Aliases:
             - ${self:custom.host}
-            - www.${self:custom.host}
           Origins:
             - DomainName:
                 Fn::GetAtt:
