@@ -6,12 +6,12 @@ type AnchorProps = {
 
 const Anchor = styled.a<AnchorProps>(
   ({ active, theme: { colors } }) => css`
-    color: ${colors.bgPrimary};
+    color: ${colors.accent};
     cursor: pointer;
     text-decoration: none;
 
     :visited {
-      color: ${colors.bgPrimary};
+      color: ${colors.accent};
     }
 
     :hover {

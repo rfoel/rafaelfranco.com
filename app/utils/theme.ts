@@ -3,10 +3,9 @@ const green = '#068757'
 const white = '#ffffff'
 
 const colors = {
-  bgDefault: white,
-  fgDefault: darkGray,
-  bgPrimary: green,
-  fgPrimary: white,
+  accent: green,
+  background: white,
+  foreground: darkGray,
 }
 
 const theme = {

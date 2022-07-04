@@ -109,6 +109,9 @@ dist
 
 # Serverless directories
 .serverless/
+public/build
+public/static
+server/build
 
 # FuseBox cache
 .fusebox/
@@ -128,16 +131,6 @@ dist
 .yarn/build-state.yml
 .yarn/install-state.gz
 .pnp.*
-
-# arc
-/.cache
-/server/index.js
-/server/index.js.map
-/public/build
-preferences.arc
-sam.json
-sam.yaml
-.env
 
 # macOS 
 .DS_Store
