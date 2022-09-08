@@ -1,35 +1,52 @@
-import styled from 'styled-components'
-
-import Anchor from '../components/Anchor'
-
-const Container = styled.div`
-  align-items: center;
-  display: flex;
-  flex: 1;
-  flex-direction: column;
-  justify-content: center;
-`
+import { Center, Link, Text } from '@chakra-ui/react'
 
 const Index = () => {
   return (
-    <Container>
-      <p>
+    <Center
+      display="flex"
+      flexDirection="column"
+      fontSize="xl"
+      minH="100vh"
+      padding={2}
+      textAlign="center"
+    >
+      <Text marginBottom={4}>
         Rafael Franco, engenheiro de software na{' '}
-        <Anchor href="https://energialemon.com.br" target="_blank">
+        <Link
+          color="green.500"
+          href="https://energialemon.com.br"
+          target="_blank"
+          rel="noreferrer"
+        >
           Lemon Energia
-        </Anchor>
+        </Link>
         .
-      </p>
-      <Anchor href="https://github.com/rfoel" target="_blank">
+      </Text>
+      <Link
+        color="green.500"
+        href="https://github.com/rfoel"
+        target="_blank"
+        rel="noreferrer"
+      >
         github
-      </Anchor>
-      <Anchor href="https://linkedin.com/in/rfoel" target="_blank">
+      </Link>
+      <Link
+        color="green.500"
+        href="https://linkedin.com/in/rfoel"
+        target="_blank"
+        rel="noreferrer"
+      >
         linkedin
-      </Anchor>
-      <Anchor href="https://twitter.com/rfoel" target="_blank">
+      </Link>
+      <Link
+        color="green.500"
+        href="https://twitter.com/rfoel"
+        target="_blank"
+        rel="noreferrer"
+      >
         twitter
-      </Anchor>
-    </Container>
+      </Link>
+    </Center>
   )
 }
 

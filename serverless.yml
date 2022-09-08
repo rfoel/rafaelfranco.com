@@ -13,7 +13,14 @@ provider:
   region: ${opt:region, 'us-east-1'}
   environment:
     AWS_NODEJS_CONNECTION_REUSE_ENABLED: '1'
+    CLIENT_ID: ${env:CLIENT_ID}
+    CLIENT_SECRET: ${env:CLIENT_SECRET}
+    DOMAIN_NAME: ${env:DOMAIN_NAME}
     NODE_OPTIONS: '--enable-source-maps --stack-trace-limit=1000'
+    PERSONAL_ACCESS_TOKEN: ${env:PERSONAL_ACCESS_TOKEN}
+    REGION: ${env:REGION}
+    SECRET_COOKIE_PASSWORD: ${env:SECRET_COOKIE_PASSWORD}
+    STAGE: string
 
 package:
   individually: true

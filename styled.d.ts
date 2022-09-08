@@ -7,5 +7,6 @@ declare module 'styled-components' {
       background: string
       foreground: string
     }
+    spacing(value: number): string
   }
 }
