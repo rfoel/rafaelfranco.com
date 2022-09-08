@@ -1,3 +1,20 @@
+# [5.0.0](https://github.com/rfoel/rfoel.dev/compare/v4.0.0...v5.0.0) (2022-09-08)
+
+
+### Bug Fixes
+
+* fix favicon ([096a009](https://github.com/rfoel/rfoel.dev/commit/096a00960a927dab26f2fb7068b1837dc0bd6b49))
+
+
+### Features
+
+* migrate to remix ([3d0d780](https://github.com/rfoel/rfoel.dev/commit/3d0d7800073b952fe0808529acac2dec8dde1580))
+
+
+### BREAKING CHANGES
+
+* page is now build with remix and chakra-ui
+
 # [4.0.0](https://github.com/rfoel/rfoel.dev/compare/v3.0.0...v4.0.0) (2022-07-04)
 
 
