@@ -29,7 +29,7 @@
     "@architect/architect": "^10.5.3",
     "@remix-run/dev": "^1.7.0",
     "@remix-run/eslint-config": "^1.7.0",
-    "@remix-run/serve": "^1.7.0",
+    "@remix-run/serve": "^1.7.2",
     "@semantic-release/changelog": "^6.0.1",
     "@semantic-release/commit-analyzer": "^9.0.2",
     "@semantic-release/git": "^10.0.1",
