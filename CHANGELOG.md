@@ -1,3 +1,10 @@
+# [5.1.0](https://github.com/rfoel/rfoel.dev/compare/v5.0.0...v5.1.0) (2022-10-14)
+
+
+### Features
+
+* add blog ([c8f40fa](https://github.com/rfoel/rfoel.dev/commit/c8f40fa026a41cce72352766811484917844f9dd))
+
 # [5.0.0](https://github.com/rfoel/rfoel.dev/compare/v4.0.0...v5.0.0) (2022-09-08)
 
 
