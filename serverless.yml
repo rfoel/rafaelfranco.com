@@ -1,10 +1,11 @@
-service: rfoel-dev
+service: rafaelfranco
 
 frameworkVersion: '3'
 
 plugins:
   - serverless-esbuild
   - serverless-s3-sync
+  - serverless-domain-manager
 
 provider:
   name: aws
@@ -12,16 +13,16 @@ provider:
   stage: ${opt:stage, 'dev'}
   region: ${opt:region, 'us-east-1'}
   environment:
-    GITHUB_CLIENT_ID: ${ssm:/rfoel/githubClientId}
-    GITHUB_CLIENT_SECRET: ${ssm:/rfoel/githubClientSecret}
-    GITHUB_PERSONAL_ACCESS_TOKEN: ${ssm:/rfoel/githubPersonalAccessToken}
-    SECRET_COOKIE_PASSWORD: ${ssm:/rfoel/secretCookiePassword}
+    GITHUB_CLIENT_ID: ${ssm:/rafaelfranco/githubClientId}
+    GITHUB_CLIENT_SECRET: ${ssm:/rafaelfranco/githubClientSecret}
+    GITHUB_PERSONAL_ACCESS_TOKEN: ${ssm:/rafaelfranco/githubPersonalAccessToken}
+    SECRET_COOKIE_PASSWORD: ${ssm:/rafaelfranco/secretCookiePassword}
 
 package:
   individually: true
 
 custom:
-  host: rfoel.dev
+  host: rafaelfranco.com
 
   esbuild:
     bundle: true
@@ -33,6 +34,7 @@ custom:
     define:
       'require.resolve': null
     platform: 'node'
+
   s3Sync:
     buckets:
       - bucketNameKey: WebsiteBucketName
@@ -43,6 +45,15 @@ custom:
               CacheControl: 'public, max-age=3600'
           - 'static/**/*':
               CacheControl: 'public, max-age=31536000, immutable'
+
+  customDomain:
+    http:
+      domainName: rafaelfranco.com
+      certificateName: rafaelfranco.com
+      createRoute53Record: true
+      createRoute53IPv6Record: true
+      endpointType: REGIONAL
+      securityPolicy: tls_1_2
 
 functions:
   remix:
@@ -197,7 +208,7 @@ resources:
           HttpVersion: http2
           PriceClass: PriceClass_All
           ViewerCertificate:
-            AcmCertificateArn: ${ssm:/rfoel/acmCertificateArn}
+            AcmCertificateArn: ${ssm:/rafaelfranco/acmCertificateArn}
             SslSupportMethod: sni-only
 
   Outputs:
