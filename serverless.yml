@@ -46,7 +46,7 @@ custom:
 
 functions:
   remix:
-    handler: server/index.handler
+    handler: functions/index.handler
     events:
       - httpApi:
           method: any
