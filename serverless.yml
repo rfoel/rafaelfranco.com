@@ -12,15 +12,10 @@ provider:
   stage: ${opt:stage, 'dev'}
   region: ${opt:region, 'us-east-1'}
   environment:
-    AWS_NODEJS_CONNECTION_REUSE_ENABLED: '1'
-    CLIENT_ID: ${ssm:/rfoel/githubClientId}
-    CLIENT_SECRET: ${ssm:/rfoel/githubClientSecret}
-    DOMAIN_NAME: rfoel.dev
-    NODE_OPTIONS: '--enable-source-maps --stack-trace-limit=1000'
-    PERSONAL_ACCESS_TOKEN: ${ssm:/rfoel/githubPersonalAccessToken}
-    REGION: us-east-1
+    GITHUB_CLIENT_ID: ${ssm:/rfoel/githubClientId}
+    GITHUB_CLIENT_SECRET: ${ssm:/rfoel/githubClientSecret}
+    GITHUB_PERSONAL_ACCESS_TOKEN: ${ssm:/rfoel/githubPersonalAccessToken}
     SECRET_COOKIE_PASSWORD: ${ssm:/rfoel/secretCookiePassword}
-    STAGE: prod
 
 package:
   individually: true

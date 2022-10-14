@@ -6,6 +6,6 @@ module.exports = {
   assetsBuildDirectory: 'public/static',
   devServerPort: 8000,
   publicPath: '/static/',
-  serverBuildDirectory: 'server/build',
+  serverBuildDirectory: 'functions/build',
   serverBuildTarget: 'arc',
 }

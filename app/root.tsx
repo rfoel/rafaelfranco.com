@@ -1,6 +1,7 @@
-import { ChakraProvider } from '@chakra-ui/react'
-import { withEmotionCache } from '@emotion/react'
-import type { MetaFunction, LinksFunction } from '@remix-run/node' // Depends on the runtime you choose
+import { ChakraProvider, ColorModeScript } from '@chakra-ui/react'
+import { css, withEmotionCache } from '@emotion/react'
+import styled from '@emotion/styled'
+import type { MetaFunction } from '@remix-run/node'
 import {
   Links,
   LiveReload,
@@ -9,9 +10,14 @@ import {
   Scripts,
   ScrollRestoration,
 } from '@remix-run/react'
+import dayjs from 'dayjs'
 import React, { useContext, useEffect } from 'react'
 
+import 'dayjs/locale/pt-br'
+
 import { ServerStyleContext, ClientStyleContext } from './context'
+
+dayjs.locale('pt-br')
 
 export const meta: MetaFunction = () => ({
   charset: 'utf-8',
@@ -19,16 +25,80 @@ export const meta: MetaFunction = () => ({
   viewport: 'width=device-width,initial-scale=1',
 })
 
-export let links: LinksFunction = () => {
-  return [
-    { rel: 'preconnect', href: 'https://fonts.googleapis.com' },
-    { rel: 'preconnect', href: 'https://fonts.gstatic.com' },
-    {
-      rel: 'stylesheet',
-      href: 'https://fonts.googleapis.com/css2?family=Poppins:wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&display=swap',
-    },
-  ]
-}
+const Html = styled.html(
+  () => css`
+    &,
+    & > body {
+      margin: 0;
+      display: flex;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen,
+        Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+      flex-direction: column;
+      flex: 1;
+      min-height: 100%;
+    }
+
+    @keyframes fade-in {
+      100% {
+        opacity: 1;
+      }
+    }
+
+    .shiki {
+      border-radius: var(--chakra-radii-lg);
+      padding: var(--chakra-space-8);
+    }
+
+    .shiki + span {
+      bottom: var(--chakra-space-2);
+      color: var(--shiki-color-text);
+      font-size: var(--chakra-fontSizes-sm);
+      opacity: 0.8;
+      position: absolute;
+      right: var(--chakra-space-4);
+    }
+
+    &[data-theme='dark'] {
+      :root {
+        --shiki-color-text: #f8f8f2;
+        --shiki-color-background: #282a36;
+        --shiki-token-constant: #bd93f9;
+        --shiki-token-string: #770000;
+        --shiki-token-comment: #6272a4;
+        --shiki-token-keyword: #ff79c6;
+        --shiki-token-parameter: #bd93f9;
+        --shiki-token-function: #8be9fd;
+        --shiki-token-string-expression: #f1fa8c;
+        --shiki-token-punctuation: #f8f8f2;
+        --shiki-token-link: #ffb86c;
+      }
+
+      .shiki-light {
+        display: none;
+      }
+    }
+
+    &[data-theme='light'] {
+      :root {
+        --shiki-color-text: #f8f8f2;
+        --shiki-color-background: #282a36;
+        --shiki-token-constant: #bd93f9;
+        --shiki-token-string: #770000;
+        --shiki-token-comment: #6272a4;
+        --shiki-token-keyword: #ff79c6;
+        --shiki-token-parameter: #bd93f9;
+        --shiki-token-function: #8be9fd;
+        --shiki-token-string-expression: #f1fa8c;
+        --shiki-token-punctuation: #f8f8f2;
+        --shiki-token-link: #ffb86c;
+      }
+
+      .shiki-dark {
+        display: none;
+      }
+    }
+  `,
+)
 
 interface DocumentProps {
   children: React.ReactNode
@@ -51,7 +121,7 @@ const Document = withEmotionCache(
     }, [])
 
     return (
-      <html lang="pt-br">
+      <Html lang="pt-br">
         <head>
           <Meta />
           <Links />
@@ -69,7 +139,7 @@ const Document = withEmotionCache(
           <Scripts />
           <LiveReload />
         </body>
-      </html>
+      </Html>
     )
   },
 )
@@ -77,6 +147,7 @@ const Document = withEmotionCache(
 export default function App() {
   return (
     <Document>
+      <ColorModeScript />
       <ChakraProvider>
         <Outlet />
       </ChakraProvider>

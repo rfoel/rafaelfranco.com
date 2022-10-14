@@ -1,52 +1,62 @@
-import { Center, Link, Text } from '@chakra-ui/react'
+import { Center, Container, Link, Text } from '@chakra-ui/react'
+
+import Navbar from '~/components/Navbar'
 
 const Index = () => {
   return (
-    <Center
+    <Container
       display="flex"
       flexDirection="column"
-      fontSize="xl"
-      minH="100vh"
-      padding={2}
-      textAlign="center"
+      maxWidth="3xl"
+      minHeight="100vh"
     >
-      <Text marginBottom={4}>
-        Rafael Franco, engenheiro de software na{' '}
+      <Navbar />
+      <Center
+        display="flex"
+        flexDirection="column"
+        flexGrow="1"
+        fontSize="xl"
+        padding={2}
+        textAlign="center"
+      >
+        <Text marginBottom={4}>
+          Engenheiro de software na{' '}
+          <Link
+            color="green.500"
+            href="https://energialemon.com.br"
+            target="_blank"
+            rel="noreferrer"
+          >
+            Lemon Energia
+          </Link>
+          .
+        </Text>
         <Link
           color="green.500"
-          href="https://energialemon.com.br"
+          href="https://github.com/rfoel"
           target="_blank"
           rel="noreferrer"
         >
-          Lemon Energia
+          GitHub
         </Link>
-        .
-      </Text>
-      <Link
-        color="green.500"
-        href="https://github.com/rfoel"
-        target="_blank"
-        rel="noreferrer"
-      >
-        github
-      </Link>
-      <Link
-        color="green.500"
-        href="https://linkedin.com/in/rfoel"
-        target="_blank"
-        rel="noreferrer"
-      >
-        linkedin
-      </Link>
-      <Link
-        color="green.500"
-        href="https://twitter.com/rfoel"
-        target="_blank"
-        rel="noreferrer"
-      >
-        twitter
-      </Link>
-    </Center>
+        <Link
+          color="green.500"
+          href="https://linkedin.com/in/rfoel"
+          target="_blank"
+          rel="noreferrer"
+        >
+          LinkedIn
+        </Link>
+        <Link
+          color="green.500"
+          href="https://twitter.com/rfoel"
+          target="_blank"
+          rel="noreferrer"
+        >
+          Twitter
+        </Link>
+      </Center>
+    </Container>
   )
 }
 
