@@ -35,7 +35,6 @@
   },
   "devDependencies": {
     "@architect/architect": "^10.7.1",
-    "@chakra-ui/cli": "^2.1.8",
     "@octokit/graphql-schema": "^12.11.0",
     "@octokit/types": "^8.0.0",
     "@remix-run/dev": "^1.7.2",
