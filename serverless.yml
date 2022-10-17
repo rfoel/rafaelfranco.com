@@ -5,7 +5,6 @@ frameworkVersion: '3'
 plugins:
   - serverless-esbuild
   - serverless-s3-sync
-  - serverless-domain-manager
 
 provider:
   name: aws
@@ -45,15 +44,6 @@ custom:
               CacheControl: 'public, max-age=3600'
           - 'static/**/*':
               CacheControl: 'public, max-age=31536000, immutable'
-
-  customDomain:
-    http:
-      domainName: rafaelfranco.com
-      certificateName: rafaelfranco.com
-      createRoute53Record: true
-      createRoute53IPv6Record: true
-      endpointType: REGIONAL
-      securityPolicy: tls_1_2
 
 functions:
   remix:
