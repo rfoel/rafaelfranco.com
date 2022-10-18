@@ -7,12 +7,12 @@ import { renderToString } from 'react-dom/server'
 import { ServerStyleContext } from './context'
 import createEmotionCache from './createEmotionCache'
 
-export default function handleRequest(
+export default (
   request: Request,
   responseStatusCode: number,
   responseHeaders: Headers,
   remixContext: EntryContext,
-) {
+) => {
   const cache = createEmotionCache()
   const { extractCriticalToChunks } = createEmotionServer(cache)
 
