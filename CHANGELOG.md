@@ -1,3 +1,10 @@
+# [5.2.0](https://github.com/rfoel/rafaelfranco.com/compare/v5.1.1...v5.2.0) (2022-10-18)
+
+
+### Features
+
+* add splitbee ([1f5986f](https://github.com/rfoel/rafaelfranco.com/commit/1f5986f9213b49161e720457cdbee346449b976d))
+
 ## [5.1.1](https://github.com/rfoel/rafaelfranco.com/compare/v5.1.0...v5.1.1) (2022-10-18)
 
 
