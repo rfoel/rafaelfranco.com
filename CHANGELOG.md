@@ -1,3 +1,10 @@
+## [5.2.1](https://github.com/rfoel/rafaelfranco.com/compare/v5.2.0...v5.2.1) (2022-10-18)
+
+
+### Bug Fixes
+
+* fix splitbee init ([70cf3f6](https://github.com/rfoel/rafaelfranco.com/commit/70cf3f61bed4974b017e2cf61f58585a58efa618))
+
 # [5.2.0](https://github.com/rfoel/rafaelfranco.com/compare/v5.1.1...v5.2.0) (2022-10-18)
 
 
