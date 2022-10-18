@@ -1,3 +1,10 @@
+## [5.1.1](https://github.com/rfoel/rafaelfranco.com/compare/v5.1.0...v5.1.1) (2022-10-18)
+
+
+### Bug Fixes
+
+* update repo ([d4024e4](https://github.com/rfoel/rafaelfranco.com/commit/d4024e4b93c3ff611aabdb506e21f563a3d9cac5))
+
 # [5.1.0](https://github.com/rfoel/rfoel.dev/compare/v5.0.0...v5.1.0) (2022-10-14)
 
 
