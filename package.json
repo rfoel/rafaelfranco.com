@@ -24,7 +24,7 @@
     "@remix-run/node": "^1.7.2",
     "@remix-run/react": "^1.7.2",
     "dayjs": "^1.11.5",
-    "framer-motion": "^7.5.3",
+    "framer-motion": "^7.5.4",
     "markdown-to-jsx": "^7.1.7",
     "polished": "^4.2.2",
     "react": "^18.2.0",
