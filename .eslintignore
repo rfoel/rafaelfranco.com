@@ -134,3 +134,6 @@ server/build
 
 # macOS 
 .DS_Store
+
+# esbuild
+functions/build

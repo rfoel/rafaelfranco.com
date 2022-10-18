@@ -8,7 +8,7 @@ import slugify from 'slugify'
 
 import type { Post } from 'types'
 import LabelList from '~/components/LabelList'
-import { searchDiscussion } from '~/services/github'
+import { searchDiscussion } from '~/services/github.server'
 import { renderToHtml } from '~/services/markdown.server'
 
 export const loader: LoaderFunction = async ({ params }) => {
@@ -21,7 +21,7 @@ export const loader: LoaderFunction = async ({ params }) => {
   if (!discussion) return redirect('/blog')
 
   const thumbnail = discussion.body.match(
-    /(http|ftp|https):\/\/([\w_-]+(?:(?:\.[\w_-]+)+))([\w.,@?^=%&:\/~+#-]*[\w@?^=%&\/~+#-])/,
+    /(http|ftp|https):\/\/([\w_-]+(?:(?:\.[\w_-]+)+))([\w.,@?^=%&:/~+#-]*[\w@?^=%&/~+#-])/,
   )?.[0]
   const post = {
     createdAt: discussion.createdAt,

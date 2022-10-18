@@ -8,7 +8,7 @@ export const getDiscussions = async () => {
 
   const query = `
     query {
-      repository(name: "rfoel.dev", owner: "rfoel") {
+      repository(name: "rafaelfranco.com", owner: "rfoel") {
         discussions(first: 10) {
           nodes {
             createdAt
@@ -52,7 +52,7 @@ export const searchDiscussion = async (slug: string) => {
     }
   `
   const data = await octokit.graphql<Query>(query, {
-    slug: `repo:rfoel/rfoel.dev "${slug}"`,
+    slug: `repo:rfoel/rafaelfranco.com "${slug}"`,
   })
 
   return data.search.nodes?.[0] as Discussion

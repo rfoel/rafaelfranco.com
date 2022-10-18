@@ -1,4 +1,4 @@
-import { Box, Center, Heading, Image, SimpleGrid, Text } from '@chakra-ui/react'
+import { Box, Heading, Image, SimpleGrid, Text } from '@chakra-ui/react'
 import type { LoaderFunction } from '@remix-run/node'
 import { json } from '@remix-run/node'
 import { Link, useLoaderData } from '@remix-run/react'
@@ -7,13 +7,13 @@ import readingTime from 'reading-time'
 import slugify from 'slugify'
 
 import type { SummaryPost } from 'types'
-import { getDiscussions } from '~/services/github'
+import { getDiscussions } from '~/services/github.server'
 
 export const loader: LoaderFunction = async () => {
   const discussions = await getDiscussions()
   const posts = discussions.map(discussion => {
     const thumbnail = discussion.body.match(
-      /(http|ftp|https):\/\/([\w_-]+(?:(?:\.[\w_-]+)+))([\w.,@?^=%&:\/~+#-]*[\w@?^=%&\/~+#-])/,
+      /(http|ftp|https):\/\/([\w_-]+(?:(?:\.[\w_-]+)+))([\w.,@?^=%&:/~+#-]*[\w@?^=%&/~+#-])/,
     )?.[0]
     return {
       createdAt: discussion.createdAt,
