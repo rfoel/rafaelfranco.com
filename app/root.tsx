@@ -10,6 +10,7 @@ import {
   Scripts,
   ScrollRestoration,
 } from '@remix-run/react'
+import splitbee from '@splitbee/web'
 import dayjs from 'dayjs'
 import React, { useContext, useEffect } from 'react'
 
@@ -110,6 +111,7 @@ const Document = withEmotionCache(
     const clientStyleData = useContext(ClientStyleContext)
 
     useEffect(() => {
+      splitbee.init()
       emotionCache.sheet.container = document.head
       const tags = emotionCache.sheet.tags
       emotionCache.sheet.flush()

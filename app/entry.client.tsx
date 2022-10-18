@@ -1,7 +1,6 @@
 import { CacheProvider } from '@emotion/react'
 import { RemixBrowser } from '@remix-run/react'
-import splitbee from '@splitbee/web'
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import { hydrateRoot } from 'react-dom/client'
 
 import { ClientStyleContext } from './context'
@@ -25,17 +24,9 @@ const ClientCacheProvider = ({ children }: ClientCacheProviderProps) => {
   )
 }
 
-const Client = () => {
-  useEffect(() => {
-    splitbee.init()
-  }, [])
-
-  return <RemixBrowser />
-}
-
 hydrateRoot(
   document,
   <ClientCacheProvider>
-    <Client />
+    <RemixBrowser />
   </ClientCacheProvider>,
 )
