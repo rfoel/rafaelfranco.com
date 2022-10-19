@@ -1,3 +1,10 @@
+## [5.2.2](https://github.com/rfoel/rafaelfranco.com/compare/v5.2.1...v5.2.2) (2022-10-19)
+
+
+### Bug Fixes
+
+* fix shiki render ([c5e8603](https://github.com/rfoel/rafaelfranco.com/commit/c5e86030be6865a44281358572828005b100ee61))
+
 ## [5.2.1](https://github.com/rfoel/rafaelfranco.com/compare/v5.2.0...v5.2.1) (2022-10-18)
 
 
