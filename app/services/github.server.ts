@@ -51,6 +51,7 @@ export const searchDiscussion = async (slug: string) => {
       }
     }
   `
+
   const data = await octokit.graphql<Query>(query, {
     slug: `repo:rfoel/rafaelfranco.com "${slug}"`,
   })

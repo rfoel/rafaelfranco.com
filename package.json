@@ -32,11 +32,12 @@
     "react-dom": "^18.2.0",
     "reading-time": "^1.5.0",
     "shiki": "^0.11.1",
-    "slugify": "^1.6.5"
+    "slugify": "^1.6.5",
+    "vscode-oniguruma": "^1.6.2"
   },
   "devDependencies": {
     "@architect/architect": "^10.7.1",
-    "@octokit/graphql-schema": "^12.11.0",
+    "@octokit/graphql-schema": "^12.13.0",
     "@octokit/types": "^8.0.0",
     "@remix-run/dev": "^1.7.2",
     "@remix-run/eslint-config": "^1.7.2",

@@ -22,7 +22,9 @@ import { renderToString } from 'react-dom/server'
 import { getHighlighter } from 'shiki'
 
 export const renderToHtml = async (input: string) => {
-  const highlighter = await getHighlighter({ theme: 'css-variables' })
+  const highlighter = await getHighlighter({
+    theme: 'css-variables',
+  })
 
   return renderToString(
     ChakraProvider({
