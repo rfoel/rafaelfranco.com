@@ -1,3 +1,10 @@
+# [5.3.0](https://github.com/rfoel/rafaelfranco.com/compare/v5.2.3...v5.3.0) (2022-10-21)
+
+
+### Features
+
+* add line options to syntax highlighting ([d87e7fa](https://github.com/rfoel/rafaelfranco.com/commit/d87e7fa87307fa7104534a7284feb7441fa09f97))
+
 ## [5.2.3](https://github.com/rfoel/rafaelfranco.com/compare/v5.2.2...v5.2.3) (2022-10-21)
 
 
