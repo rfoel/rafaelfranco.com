@@ -1,5 +1,5 @@
 import { Box, Heading, Image, SimpleGrid, Text } from '@chakra-ui/react'
-import type { LoaderFunction } from '@remix-run/node'
+import type { LoaderFunction, MetaFunction } from '@remix-run/node'
 import { json } from '@remix-run/node'
 import { Link, useLoaderData } from '@remix-run/react'
 import dayjs from 'dayjs'
@@ -11,7 +11,7 @@ import { getDiscussions } from '~/services/github.server'
 
 export const loader: LoaderFunction = async () => {
   const discussions = await getDiscussions()
-  const posts = discussions.map(discussion => {
+  const posts = discussions.map((discussion) => {
     const thumbnail = discussion.body.match(
       /(http|ftp|https):\/\/([\w_-]+(?:(?:\.[\w_-]+)+))([\w.,@?^=%&:/~+#-]*[\w@?^=%&/~+#-])/,
     )?.[0]
@@ -26,11 +26,15 @@ export const loader: LoaderFunction = async () => {
   return json(posts)
 }
 
+export const meta: MetaFunction = () => ({
+  title: 'Blog',
+})
+
 const Index = () => {
   const loaderData = useLoaderData<SummaryPost[]>()
   return (
-    <SimpleGrid columns={[1, 2, 3]}>
-      {loaderData.map(post => (
+    <SimpleGrid columns={[1, 2, 3]} gap={2}>
+      {loaderData.map((post) => (
         <Box
           as={Link}
           borderWidth={1}

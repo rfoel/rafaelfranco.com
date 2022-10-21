@@ -1,5 +1,5 @@
 import { Box, Heading, Text } from '@chakra-ui/react'
-import type { LoaderFunction } from '@remix-run/node'
+import type { LoaderFunction, MetaFunction } from '@remix-run/node'
 import { redirect, json } from '@remix-run/node'
 import { useLoaderData } from '@remix-run/react'
 import dayjs from 'dayjs'
@@ -29,17 +29,21 @@ export const loader: LoaderFunction = async ({ params }) => {
     slug: slugify(discussion.title, { lower: true }),
     thumbnail,
     title: discussion.title,
-    labels: discussion.labels?.nodes?.map(label => label) || [],
+    labels: discussion.labels?.nodes?.map((label) => label) || [],
     html: await renderToHtml(discussion.body),
   }
 
   return json(post)
 }
 
+export const meta: MetaFunction = ({ data }) => ({
+  title: data.title,
+})
+
 const Index = () => {
   const loaderData = useLoaderData<Post>()
   return (
-    <Box paddingY={16}>
+    <Box paddingY={16} width="100%">
       <Heading marginBottom={4}>{loaderData.title}</Heading>
       <Text marginBottom={4}>
         {dayjs(loaderData.createdAt).format('D [de] MMMM, YYYY')}

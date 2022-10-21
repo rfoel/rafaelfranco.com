@@ -48,6 +48,7 @@ const Html = styled.html(
     .shiki {
       border-radius: var(--chakra-radii-lg);
       padding: var(--chakra-space-8);
+      overflow: scroll;
     }
 
     .shiki + span {
@@ -64,7 +65,7 @@ const Html = styled.html(
         --shiki-color-text: #f8f8f2;
         --shiki-color-background: #282a36;
         --shiki-token-constant: #bd93f9;
-        --shiki-token-string: #770000;
+        --shiki-token-string: #f1fa8c;
         --shiki-token-comment: #6272a4;
         --shiki-token-keyword: #ff79c6;
         --shiki-token-parameter: #bd93f9;
@@ -84,7 +85,7 @@ const Html = styled.html(
         --shiki-color-text: #f8f8f2;
         --shiki-color-background: #282a36;
         --shiki-token-constant: #bd93f9;
-        --shiki-token-string: #770000;
+        --shiki-token-string: #f1fa8c;
         --shiki-token-comment: #6272a4;
         --shiki-token-keyword: #ff79c6;
         --shiki-token-parameter: #bd93f9;
@@ -115,7 +116,7 @@ const Document = withEmotionCache(
       emotionCache.sheet.container = document.head
       const tags = emotionCache.sheet.tags
       emotionCache.sheet.flush()
-      tags.forEach(tag => {
+      tags.forEach((tag) => {
         ;(emotionCache.sheet as any)._insertTag(tag)
       })
       clientStyleData?.reset()

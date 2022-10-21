@@ -52,7 +52,9 @@ export const renderToHtml = async (input: string) => {
                         lang,
                       }) + `<span>${lang}</span>`,
                   },
-                  style: { position: 'relative' },
+                  style: {
+                    position: 'relative',
+                  },
                 })
               },
             },
