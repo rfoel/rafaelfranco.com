@@ -40,7 +40,7 @@
     "@octokit/graphql-schema": "^12.13.0",
     "@octokit/types": "^8.0.0",
     "@remix-run/dev": "^1.7.2",
-    "@remix-run/eslint-config": "^1.7.2",
+    "@remix-run/eslint-config": "^1.7.3",
     "@remix-run/serve": "^1.7.2",
     "@semantic-release/changelog": "^6.0.1",
     "@semantic-release/commit-analyzer": "^9.0.2",
