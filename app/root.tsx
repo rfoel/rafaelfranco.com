@@ -47,17 +47,67 @@ const Html = styled.html(
 
     .shiki {
       border-radius: var(--chakra-radii-lg);
-      padding: var(--chakra-space-8);
+      padding: var(--chakra-space-10) var(--chakra-space-4);
       overflow: scroll;
-    }
 
-    .shiki + span {
-      bottom: var(--chakra-space-2);
-      color: var(--shiki-color-text);
-      font-size: var(--chakra-fontSizes-sm);
-      opacity: 0.8;
-      position: absolute;
-      right: var(--chakra-space-4);
+      code {
+        counter-reset: step;
+        counter-increment: step 0;
+        display: inline-block;
+        min-width: 100%;
+      }
+
+      code .line::before {
+        content: counter(step);
+        counter-increment: step;
+        width: var(--chakra-space-4);
+        margin-right: var(--chakra-space-4);
+        display: inline-block;
+        text-align: right;
+        color: rgba(115, 138, 148, 0.4);
+      }
+
+      .line {
+        position: relative;
+        box-sizing: content-box;
+        display: inline-block;
+        margin: 0 calc(var(--chakra-space-4) * -1);
+        padding: 0 calc(var(--chakra-space-4));
+        min-width: 100%;
+
+        ::after {
+          content: '';
+          height: 100%;
+          left: 0;
+          position: absolute;
+          top: 0;
+          width: var(--chakra-space-1);
+        }
+      }
+
+      .line.add {
+        background-color: #50fa7b30;
+
+        ::after {
+          background-color: #50fa7b;
+        }
+      }
+
+      .line.delete {
+        background-color: #ff555530;
+
+        ::after {
+          background-color: #ff5555;
+        }
+      }
+
+      .line.highlight {
+        background-color: #8be9fd30;
+
+        ::after {
+          background-color: #8be9fd;
+        }
+      }
     }
 
     &[data-theme='dark'] {

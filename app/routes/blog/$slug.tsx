@@ -44,14 +44,16 @@ const Index = () => {
   const loaderData = useLoaderData<Post>()
   return (
     <Box paddingY={16} width="100%">
-      <Heading marginBottom={4}>{loaderData.title}</Heading>
+      <Heading as="h1" marginBottom={4} size="2xl">
+        {loaderData.title}
+      </Heading>
       <Text marginBottom={4}>
         {dayjs(loaderData.createdAt).format('D [de] MMMM, YYYY')}
         {' • '}
         {loaderData.readingTime}{' '}
         {loaderData.readingTime === 1 ? 'minuto' : 'minutos'} de leitura
       </Text>
-      <LabelList labels={loaderData.labels} />
+      <LabelList labels={loaderData.labels as Post['labels']} />
       <Box dangerouslySetInnerHTML={{ __html: loaderData.html }} />
     </Box>
   )
