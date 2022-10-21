@@ -1,3 +1,10 @@
+## [5.2.3](https://github.com/rfoel/rafaelfranco.com/compare/v5.2.2...v5.2.3) (2022-10-21)
+
+
+### Bug Fixes
+
+* fix code block overflow ([1052953](https://github.com/rfoel/rafaelfranco.com/commit/10529536ab008bfb0645a70e9ee163188e4db23e))
+
 ## [5.2.2](https://github.com/rfoel/rafaelfranco.com/compare/v5.2.1...v5.2.2) (2022-10-19)
 
 
