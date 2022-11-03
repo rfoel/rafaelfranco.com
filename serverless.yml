@@ -15,7 +15,9 @@ provider:
     GITHUB_CLIENT_ID: ${ssm:/rafaelfranco/githubClientId}
     GITHUB_CLIENT_SECRET: ${ssm:/rafaelfranco/githubClientSecret}
     GITHUB_PERSONAL_ACCESS_TOKEN: ${ssm:/rafaelfranco/githubPersonalAccessToken}
+    HEAP_ID: ${ssm:/rafaelfranco/heapId}
     SECRET_COOKIE_PASSWORD: ${ssm:/rafaelfranco/secretCookiePassword}
+    SENTRY_DSN: ${ssm:/rafaelfranco/sentryDsn}
 
 package:
   individually: true

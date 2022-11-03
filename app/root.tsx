@@ -1,7 +1,8 @@
 import { ChakraProvider, ColorModeScript } from '@chakra-ui/react'
 import { css, withEmotionCache } from '@emotion/react'
 import styled from '@emotion/styled'
-import type { MetaFunction } from '@remix-run/node'
+import type { LoaderFunction, MetaFunction } from '@remix-run/node'
+import { json } from '@remix-run/node'
 import {
   Links,
   LiveReload,
@@ -9,16 +10,28 @@ import {
   Outlet,
   Scripts,
   ScrollRestoration,
+  useLoaderData,
+  useLocation,
+  useMatches,
 } from '@remix-run/react'
-import splitbee from '@splitbee/web'
+import * as Sentry from '@sentry/remix'
 import dayjs from 'dayjs'
 import React, { useContext, useEffect } from 'react'
 
 import 'dayjs/locale/pt-br'
 
+import { version } from '../package.json'
+
 import { ServerStyleContext, ClientStyleContext } from './context'
 
 dayjs.locale('pt-br')
+
+export const loader: LoaderFunction = () => {
+  return json({
+    heapId: process.env.HEAP_ID,
+    sentryDsn: process.env.SENTRY_DSN,
+  })
+}
 
 export const meta: MetaFunction = () => ({
   charset: 'utf-8',
@@ -158,15 +171,29 @@ interface DocumentProps {
 
 const Document = withEmotionCache(
   ({ children }: DocumentProps, emotionCache) => {
+    const loaderData = useLoaderData()
     const serverStyleData = useContext(ServerStyleContext)
     const clientStyleData = useContext(ClientStyleContext)
 
     useEffect(() => {
-      splitbee.init()
+      Sentry.init({
+        dsn: loaderData.sentryDsn,
+        tracesSampleRate: 1,
+        release: version,
+        integrations: [
+          new Sentry.BrowserTracing({
+            routingInstrumentation: Sentry.remixRouterInstrumentation(
+              useEffect,
+              useLocation,
+              useMatches,
+            ),
+          }),
+        ],
+      })
       emotionCache.sheet.container = document.head
       const tags = emotionCache.sheet.tags
       emotionCache.sheet.flush()
-      tags.forEach((tag) => {
+      tags.forEach(tag => {
         ;(emotionCache.sheet as any)._insertTag(tag)
       })
       clientStyleData?.reset()
@@ -185,6 +212,15 @@ const Document = withEmotionCache(
               dangerouslySetInnerHTML={{ __html: css }}
             />
           ))}
+          <script
+            async
+            dangerouslySetInnerHTML={{
+              __html: `
+            window.heap=window.heap||[],heap.load=function(e,t){window.heap.appid=e,window.heap.config=t=t||{};var r=document.createElement("script");r.type="text/javascript",r.async=!0,r.src="https://cdn.heapanalytics.com/js/heap-"+e+".js";var a=document.getElementsByTagName("script")[0];a.parentNode.insertBefore(r,a);for(var n=function(e){return function(){heap.push([e].concat(Array.prototype.slice.call(arguments,0)))}},p=["addEventProperties","addUserProperties","clearEventProperties","identify","resetIdentity","removeEventProperty","setEventProperties","track","unsetEventProperty"],o=0;o<p.length;o++)heap[p[o]]=n(p[o])};
+            heap.load(${loaderData.heapId});
+            `,
+            }}
+          />
         </head>
         <body>
           {children}
@@ -197,7 +233,7 @@ const Document = withEmotionCache(
   },
 )
 
-export default function App() {
+export default Sentry.withSentry(function App() {
   return (
     <Document>
       <ColorModeScript />
@@ -206,4 +242,4 @@ export default function App() {
       </ChakraProvider>
     </Document>
   )
-}
+})
