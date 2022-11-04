@@ -1,3 +1,10 @@
+## [5.4.2](https://github.com/rfoel/rafaelfranco.com/compare/v5.4.1...v5.4.2) (2022-11-04)
+
+
+### Bug Fixes
+
+* add font to cloudfront ([e66c40b](https://github.com/rfoel/rafaelfranco.com/commit/e66c40b0f597f3b551ec569d39a239d2342efd84))
+
 ## [5.4.1](https://github.com/rfoel/rafaelfranco.com/compare/v5.4.0...v5.4.1) (2022-11-04)
 
 
