@@ -1,5 +1,3 @@
-import fs from 'fs/promises'
-
 import type { LoaderFunction } from '@remix-run/node'
 import readingTime from 'reading-time'
 import satori from 'satori'
@@ -9,6 +7,7 @@ import { searchDiscussion } from '~/services/github.server'
 
 export const loader: LoaderFunction = async ({ request, params }) => {
   const slug = params.slug
+  const url = new URL(request.url)
 
   if (typeof slug !== 'string') return new Response(null, { status: 404 })
 
@@ -64,7 +63,7 @@ export const loader: LoaderFunction = async ({ request, params }) => {
           <h1
             style={{
               fontFamily: 'Space Grotesk',
-              fontSize: '56px',
+              fontSize: '36px',
             }}
           >
             {discussion.title}
@@ -79,8 +78,8 @@ export const loader: LoaderFunction = async ({ request, params }) => {
     {
       fonts: [
         {
-          data: await fs.readFile(
-            `${process.cwd()}/public/SpaceGrotesk-Bold.ttf`,
+          data: await fetch(`${url.origin}/SpaceGrotesk-Bold.ttf`).then(
+            response => response.arrayBuffer(),
           ),
           name: 'Space Grotesk',
           style: 'normal',
