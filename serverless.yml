@@ -41,8 +41,8 @@ custom:
         bucketPrefix: website/
         localDir: public
         params:
-          - favicon.png:
-              CacheControl: 'public, max-age=3600'
+          - 'SpaceGrotesk-Bold.ttf':
+              CacheControl: 'public, max-age=31536000, immutable'
           - 'static/**/*':
               CacheControl: 'public, max-age=31536000, immutable'
 
@@ -180,6 +180,21 @@ resources:
               ViewerProtocolPolicy: redirect-to-https
 
             - PathPattern: '/favicon*'
+              AllowedMethods:
+                - GET
+                - HEAD
+              CachedMethods:
+                - GET
+                - HEAD
+              Compress: false
+              ForwardedValues:
+                QueryString: true
+                Cookies:
+                  Forward: none
+              TargetOriginId: StaticOrigin
+              ViewerProtocolPolicy: redirect-to-https
+
+            - PathPattern: '/SpaceGrotesk-Bold.ttf'
               AllowedMethods:
                 - GET
                 - HEAD
