@@ -1,3 +1,11 @@
+# [5.4.0](https://github.com/rfoel/rafaelfranco.com/compare/v5.3.0...v5.4.0) (2022-11-04)
+
+
+### Features
+
+* add og image for posts ([8e6c3ec](https://github.com/rfoel/rafaelfranco.com/commit/8e6c3ece8167ac331d1ad55b36b1273977cc7ae4))
+* add sentry and heap ([ba86502](https://github.com/rfoel/rafaelfranco.com/commit/ba86502a4cbef026c51aef2fc19742fc1651ec30))
+
 # [5.3.0](https://github.com/rfoel/rafaelfranco.com/compare/v5.2.3...v5.3.0) (2022-10-21)
 
 
