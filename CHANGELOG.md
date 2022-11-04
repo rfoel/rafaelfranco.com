@@ -1,3 +1,10 @@
+## [5.4.3](https://github.com/rfoel/rafaelfranco.com/compare/v5.4.2...v5.4.3) (2022-11-04)
+
+
+### Bug Fixes
+
+* add cache to og image ([23536ef](https://github.com/rfoel/rafaelfranco.com/commit/23536ef2170d6f0d0a93885bcb9a8d46c8a2dee8))
+
 ## [5.4.2](https://github.com/rfoel/rafaelfranco.com/compare/v5.4.1...v5.4.2) (2022-11-04)
 
 
