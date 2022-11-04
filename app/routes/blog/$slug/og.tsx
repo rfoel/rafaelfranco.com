@@ -93,6 +93,7 @@ export const loader: LoaderFunction = async ({ request, params }) => {
   return new Response(await sharp(Buffer.from(svg)).jpeg().toBuffer(), {
     headers: {
       'Content-Type': 'image/jpeg',
+      'Cache-Control': 'max-age=31536000',
     },
   })
 }
