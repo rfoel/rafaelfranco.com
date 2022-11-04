@@ -21,7 +21,7 @@
     "@emotion/styled": "^11.10.4",
     "@octokit/core": "^4.1.0",
     "@remix-run/architect": "^1.7.3",
-    "@remix-run/node": "^1.7.3",
+    "@remix-run/node": "^1.7.5",
     "@remix-run/react": "^1.7.3",
     "@sentry/remix": "^7.17.2",
     "dayjs": "^1.11.6",
