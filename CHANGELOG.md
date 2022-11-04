@@ -1,3 +1,10 @@
+## [5.4.1](https://github.com/rfoel/rafaelfranco.com/compare/v5.4.0...v5.4.1) (2022-11-04)
+
+
+### Bug Fixes
+
+* fix font fetching ([66c91a1](https://github.com/rfoel/rafaelfranco.com/commit/66c91a1da1e13b6ba83321f6c3f1533844d57def))
+
 # [5.4.0](https://github.com/rfoel/rafaelfranco.com/compare/v5.3.0...v5.4.0) (2022-11-04)
 
 
