@@ -33,7 +33,7 @@ custom:
     exclude: ['aws-sdk']
     target: 'node16'
     platform: 'node'
-    external: ['shiki', 'vscode-oniguruma']
+    external: ['satori', 'sharp', 'shiki', 'vscode-oniguruma']
 
   s3Sync:
     buckets:

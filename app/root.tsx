@@ -1,7 +1,11 @@
 import { ChakraProvider, ColorModeScript } from '@chakra-ui/react'
 import { css, withEmotionCache } from '@emotion/react'
 import styled from '@emotion/styled'
-import type { LoaderFunction, MetaFunction } from '@remix-run/node'
+import type {
+  LinksFunction,
+  LoaderFunction,
+  MetaFunction,
+} from '@remix-run/node'
 import { json } from '@remix-run/node'
 import {
   Links,
@@ -23,6 +27,7 @@ import 'dayjs/locale/pt-br'
 import { version } from '../package.json'
 
 import { ServerStyleContext, ClientStyleContext } from './context'
+import theme from './theme'
 
 dayjs.locale('pt-br')
 
@@ -33,11 +38,24 @@ export const loader: LoaderFunction = () => {
   })
 }
 
-export const meta: MetaFunction = () => ({
-  charset: 'utf-8',
-  title: 'Rafael Franco',
-  viewport: 'width=device-width,initial-scale=1',
-})
+export const meta: MetaFunction = () => {
+  return {
+    charset: 'utf-8',
+    title: 'Rafael Franco',
+    viewport: 'width=device-width,initial-scale=1',
+  }
+}
+
+export const links: LinksFunction = () => {
+  return [
+    { rel: 'preconnect', href: 'https://fonts.googleapis.com' },
+    { rel: 'preconnect', href: 'https://fonts.gstatic.com' },
+    {
+      href: 'https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;700&display=swap',
+      rel: 'stylesheet',
+    },
+  ]
+}
 
 const Html = styled.html(
   () => css`
@@ -45,8 +63,6 @@ const Html = styled.html(
     & > body {
       margin: 0;
       display: flex;
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen,
-        Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
       flex-direction: column;
       flex: 1;
       min-height: 100%;
@@ -237,7 +253,7 @@ export default Sentry.withSentry(function App() {
   return (
     <Document>
       <ColorModeScript />
-      <ChakraProvider>
+      <ChakraProvider theme={theme}>
         <Outlet />
       </ChakraProvider>
     </Document>

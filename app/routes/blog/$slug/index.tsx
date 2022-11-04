@@ -11,7 +11,7 @@ import LabelList from '~/components/LabelList'
 import { searchDiscussion } from '~/services/github.server'
 import { renderToHtml } from '~/services/markdown.server'
 
-export const loader: LoaderFunction = async ({ params }) => {
+export const loader: LoaderFunction = async ({ request, params }) => {
   const slug = params.slug
 
   if (typeof slug !== 'string') return redirect('/blog')
@@ -29,8 +29,9 @@ export const loader: LoaderFunction = async ({ params }) => {
     slug: slugify(discussion.title, { lower: true }),
     thumbnail,
     title: discussion.title,
-    labels: discussion.labels?.nodes?.map((label) => label) || [],
+    labels: discussion.labels?.nodes?.map(label => label) || [],
     html: await renderToHtml(discussion.body),
+    og: `${request.url}/og`,
   }
 
   return json(post)
@@ -38,6 +39,10 @@ export const loader: LoaderFunction = async ({ params }) => {
 
 export const meta: MetaFunction = ({ data }) => ({
   title: data.title,
+  description: data.title,
+  'twitter:card': 'summary_large_image',
+  'og:description': data.title,
+  'og:image': data.og,
 })
 
 const Index = () => {
