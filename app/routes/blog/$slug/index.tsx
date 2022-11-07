@@ -31,7 +31,7 @@ export const loader: LoaderFunction = async ({ request, params }) => {
     title: discussion.title,
     labels: discussion.labels?.nodes?.map(label => label) || [],
     html: await renderToHtml(discussion.body),
-    og: `${request.url}/og`,
+    url: request.url,
   }
 
   return json(post)
@@ -40,9 +40,16 @@ export const loader: LoaderFunction = async ({ request, params }) => {
 export const meta: MetaFunction = ({ data }) => ({
   title: data.title,
   description: data.title,
-  'twitter:card': 'summary_large_image',
+  'og:type': 'website',
+  'og:url': data.url,
+  'og:title': data.title,
   'og:description': data.title,
-  'og:image': data.og,
+  'og:image': `${data.url}/og`,
+  'twitter:card': 'summary_large_image',
+  'twitter:url': data.urk,
+  'twitter:title': data.title,
+  'twitter:description': data.title,
+  'twitter:image': `${data.url}/og`,
 })
 
 const Index = () => {

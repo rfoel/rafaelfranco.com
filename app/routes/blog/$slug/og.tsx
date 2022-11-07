@@ -85,7 +85,7 @@ export const loader: LoaderFunction = async ({ request, params }) => {
           style: 'normal',
         },
       ],
-      height: 360,
+      height: 628,
       width: 1200,
     },
   )
