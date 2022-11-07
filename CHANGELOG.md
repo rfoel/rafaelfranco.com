@@ -1,3 +1,10 @@
+## [5.4.4](https://github.com/rfoel/rafaelfranco.com/compare/v5.4.3...v5.4.4) (2022-11-07)
+
+
+### Bug Fixes
+
+* update meta tags ([bfa632b](https://github.com/rfoel/rafaelfranco.com/commit/bfa632b82fec5dbd3ef9188f479ab5ba0694f7f5))
+
 ## [5.4.3](https://github.com/rfoel/rafaelfranco.com/compare/v5.4.2...v5.4.3) (2022-11-04)
 
 
