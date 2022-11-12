@@ -1,3 +1,10 @@
+## [5.4.6](https://github.com/rfoel/rafaelfranco.com/compare/v5.4.5...v5.4.6) (2022-11-12)
+
+
+### Bug Fixes
+
+* remove url from og ([9372c0f](https://github.com/rfoel/rafaelfranco.com/commit/9372c0f1d294d6e70fbcabd85e5f29c4ebfd456d))
+
 ## [5.4.5](https://github.com/rfoel/rafaelfranco.com/compare/v5.4.4...v5.4.5) (2022-11-12)
 
 
