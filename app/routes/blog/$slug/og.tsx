@@ -19,36 +19,32 @@ export const loader: LoaderFunction = async ({ request, params }) => {
     /(http|ftp|https):\/\/([\w_-]+(?:(?:\.[\w_-]+)+))([\w.,@?^=%&:/~+#-]*[\w@?^=%&/~+#-])/,
   )?.[0]
 
-  let base64 =
-    'data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=='
-
-  if (thumbnail) {
-    const buffer = await fetch(thumbnail).then(response =>
-      response.arrayBuffer(),
-    )
-    base64 = `data:image/png;base64,${Buffer.from(buffer).toString('base64')}`
-  }
-
   const readTime = Math.ceil(readingTime(discussion.bodyText).minutes)
 
   const svg = await satori(
     <div
       style={{
-        backgroundColor: 'white',
+        backgroundImage: `url(${thumbnail})`,
+        backgroundSize: '1200px 1200px',
+        backgroundPosition: '0 -314',
+        filter: 'brightness(0.05)',
+        color: 'white',
         display: 'flex',
-        height: '360px',
+        height: '628px',
+        fontFamily: 'Space Grotesk',
         width: '1200px',
       }}
     >
-      <img alt={discussion.title} src={base64} height={360} width={360} />
       <div
         style={{
           alignItems: 'center',
           display: 'flex',
+          flexGrow: 1,
           flexDirection: 'column',
           justifyContent: 'center',
-          height: '360px',
-          width: '840px',
+          filter: 'brightness(1)',
+          height: '628px',
+          width: '1200px',
         }}
       >
         <div
@@ -62,17 +58,20 @@ export const loader: LoaderFunction = async ({ request, params }) => {
         >
           <h1
             style={{
-              fontFamily: 'Space Grotesk',
-              fontSize: '36px',
+              fontSize: '56px',
             }}
           >
             {discussion.title}
           </h1>
-          <p>
+          <p
+            style={{
+              fontSize: '24px',
+            }}
+          >
             {readTime} {readTime === 1 ? 'minuto' : 'minutos'} de leitura
           </p>
         </div>
-        <p style={{ justifySelf: 'end' }}>{request.url.replace('/og', '')}</p>
+        <p style={{ fontSize: '24px' }}>{request.url.replace('/og', '')}</p>
       </div>
     </div>,
     {
