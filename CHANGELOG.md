@@ -1,3 +1,11 @@
+## [5.4.5](https://github.com/rfoel/rafaelfranco.com/compare/v5.4.4...v5.4.5) (2022-11-12)
+
+
+### Bug Fixes
+
+* fix open graph image generation ([9ac55e8](https://github.com/rfoel/rafaelfranco.com/commit/9ac55e82683a8efeba159349959f04567fb30a36))
+* update dependencies ([80b7787](https://github.com/rfoel/rafaelfranco.com/commit/80b77872bd1d0f1e8281b272f04ffb5896ab9b64))
+
 ## [5.4.4](https://github.com/rfoel/rafaelfranco.com/compare/v5.4.3...v5.4.4) (2022-11-07)
 
 
