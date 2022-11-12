@@ -47,31 +47,20 @@ export const loader: LoaderFunction = async ({ request, params }) => {
           width: '1200px',
         }}
       >
-        <div
+        <h1
           style={{
-            alignItems: 'center',
-            display: 'flex',
-            flexGrow: 1,
-            flexDirection: 'column',
-            justifyContent: 'center',
+            fontSize: '56px',
           }}
         >
-          <h1
-            style={{
-              fontSize: '56px',
-            }}
-          >
-            {discussion.title}
-          </h1>
-          <p
-            style={{
-              fontSize: '24px',
-            }}
-          >
-            {readTime} {readTime === 1 ? 'minuto' : 'minutos'} de leitura
-          </p>
-        </div>
-        <p style={{ fontSize: '24px' }}>{request.url.replace('/og', '')}</p>
+          {discussion.title}
+        </h1>
+        <p
+          style={{
+            fontSize: '24px',
+          }}
+        >
+          {readTime} {readTime === 1 ? 'minuto' : 'minutos'} de leitura
+        </p>
       </div>
     </div>,
     {
