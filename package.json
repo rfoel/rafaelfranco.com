@@ -42,7 +42,7 @@
     "@architect/architect": "^10.7.2",
     "@octokit/graphql-schema": "^12.26.1",
     "@octokit/types": "^8.0.0",
-    "@remix-run/dev": "^1.7.5",
+    "@remix-run/dev": "^1.9.0",
     "@remix-run/eslint-config": "^1.7.5",
     "@remix-run/serve": "^1.7.5",
     "@semantic-release/changelog": "^6.0.1",
