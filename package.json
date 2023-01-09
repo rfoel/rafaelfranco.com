@@ -39,7 +39,7 @@
     "vscode-oniguruma": "^1.6.2"
   },
   "devDependencies": {
-    "@architect/architect": "^10.7.2",
+    "@architect/architect": "^10.8.3",
     "@octokit/graphql-schema": "^12.26.1",
     "@octokit/types": "^8.0.0",
     "@remix-run/dev": "^1.7.5",
