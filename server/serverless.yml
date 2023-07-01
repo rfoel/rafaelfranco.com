@@ -195,3 +195,11 @@ resources:
             AcmCertificateArn: ${env:ACM_CERTIFICATE_ARN, ssm:/rafaelfranco/acmCertificateArn}
             SslSupportMethod: sni-only
             MinimumProtocolVersion: TLSv1.2_2021
+
+  Outputs:
+    AppCloudFrontDistributionKey:
+      Value:
+        Ref: AppCloudFrontDistribution
+    AppS3BucketName:
+      Value:
+        Ref: AppS3Bucket
