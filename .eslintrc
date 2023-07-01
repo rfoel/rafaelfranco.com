@@ -1,20 +1,35 @@
 {
-  "extends": [
-    "@remix-run/eslint-config",
-    "@remix-run/eslint-config/node",
-    "plugin:import/recommended",
-    "plugin:import/typescript"
-  ],
-  "plugins": ["import"],
+  "extends": ["react-app", "plugin:prettier/recommended"],
+  "plugins": ["prettier", "import"],
   "rules": {
+    "prettier/prettier": [
+      "error",
+      {
+        "bracketSpacing": true,
+        "printWidth": 80,
+        "semi": false,
+        "singleQuote": true,
+        "trailingComma": "all",
+        "arrowParens": "always",
+        "endOfLine": "auto"
+      }
+    ],
     "import/order": [
       "error",
       {
-        "newlines-between": "always",
         "alphabetize": {
           "order": "asc",
           "caseInsensitive": true
-        }
+        },
+        "groups": [
+          "builtin",
+          "external",
+          "internal",
+          "parent",
+          "sibling",
+          "index"
+        ],
+        "newlines-between": "always"
       }
     ]
   }

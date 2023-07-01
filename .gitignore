@@ -136,4 +136,4 @@ server/build
 .DS_Store
 
 # esbuild
-functions/build
+.esbuild

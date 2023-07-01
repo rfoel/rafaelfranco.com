@@ -1,0 +1,197 @@
+service: rafaelfranco
+
+frameworkVersion: '3'
+
+provider:
+  architecture: arm64
+  logRetentionInDays: 1
+  name: aws
+  region: us-east-1
+  runtime: nodejs18.x
+  stage: ${opt:stage, 'prod'}
+  timeout: 10
+  versionFunctions: false
+  environment:
+    DOMAIN_NAME: ${env:DOMAIN_NAME, ssm:/rafaelfranco/domainName}
+  httpApi:
+    cors:
+      allowedOrigins:
+        - http://${self:provider.environment.DOMAIN_NAME}
+        - https://${self:provider.environment.DOMAIN_NAME}
+      allowedHeaders:
+        - Content-Type
+      allowCredentials: true
+  iam:
+    role:
+      statements:
+        - Effect: Allow
+          Action:
+            - ses:SendEmail
+          Resource:
+            - arn:aws:ses:${aws:region}:${aws:accountId}:identity/*
+
+plugins:
+  - serverless-esbuild
+  - serverless-s3-sync
+  - serverless-cloudfront-invalidate
+  - serverless-offline
+
+custom:
+  cloudfrontInvalidate:
+    - distributionIdKey: AppCloudFrontDistributionKey
+      items:
+        - '/*'
+      stage: ${self:provider.stage}
+
+  esbuild:
+    bundle: true
+    format: 'esm'
+    mainFields: ['module', 'main']
+    minify: true
+    outputFileExtension: .mjs
+    platform: 'node'
+    target: 'node18'
+
+  s3Sync:
+    - bucketNameKey: AppS3BucketName
+      localDir: '../app/dist'
+
+package:
+  individually: true
+
+functions:
+  contact:
+    handler: functions/contact.handler
+    events:
+      - httpApi:
+          path: /contact
+          method: 'POST'
+
+resources:
+  Resources:
+    AppS3Bucket:
+      Type: AWS::S3::Bucket
+      Properties:
+        PublicAccessBlockConfiguration:
+          BlockPublicAcls: true
+          BlockPublicPolicy: true
+          IgnorePublicAcls: true
+          RestrictPublicBuckets: true
+
+    AppS3BucketPolicy:
+      Type: AWS::S3::BucketPolicy
+      Properties:
+        Bucket: !Ref AppS3Bucket
+        PolicyDocument:
+          Statement:
+            - Action: s3:GetObject
+              Effect: Allow
+              Resource: !Join ['/', [!GetAtt AppS3Bucket.Arn, '*']]
+              Principal:
+                Service: cloudfront.amazonaws.com
+              Condition:
+                StringEquals:
+                  AWS:SourceArn:
+                    !Join [
+                      '',
+                      [
+                        'arn:aws:cloudfront::${env:AWS_ACCOUNT_ID, aws:accountId}:distribution/',
+                        !Ref AppCloudFrontDistribution,
+                      ],
+                    ]
+
+    AppCloudFrontOriginAccessControl:
+      Type: AWS::CloudFront::OriginAccessControl
+      Properties:
+        OriginAccessControlConfig:
+          Name: ${self:service}-${self:provider.stage} OriginAccessControl
+          OriginAccessControlOriginType: s3
+          SigningBehavior: always
+          SigningProtocol: sigv4
+
+    AppCloudFrontDistribution:
+      Type: AWS::CloudFront::Distribution
+      DependsOn:
+        - AppS3Bucket
+      Properties:
+        DistributionConfig:
+          Origins:
+            - Id: App
+              DomainName: !GetAtt AppS3Bucket.DomainName
+              S3OriginConfig:
+                OriginAccessIdentity: ''
+              OriginAccessControlId: !GetAtt AppCloudFrontOriginAccessControl.Id
+
+          Enabled: true
+          Aliases:
+            - ${self:provider.environment.DOMAIN_NAME}
+            - www.${self:provider.environment.DOMAIN_NAME}
+          DefaultRootObject: /index.html
+          CustomErrorResponses:
+            - ErrorCode: 403
+              ResponseCode: 200
+              ResponsePagePath: /index.html
+            - ErrorCode: 404
+              ResponseCode: 200
+              ResponsePagePath: /index.html
+          DefaultCacheBehavior:
+            AllowedMethods:
+              - DELETE
+              - GET
+              - HEAD
+              - OPTIONS
+              - PATCH
+              - POST
+              - PUT
+            TargetOriginId: App
+            CachePolicyId: 4135ea2d-6df8-44a3-9df3-4b5a84be39ad # CachingDisabled
+            OriginRequestPolicyId: 88a5eaf4-2fd4-4709-b370-b4c650ea3fcf # CORS-S3Origin
+            ViewerProtocolPolicy: redirect-to-https
+          ViewerCertificate:
+            AcmCertificateArn: ${env:ACM_CERTIFICATE_ARN, ssm:/rafaelfranco/acmCertificateArn}
+            SslSupportMethod: sni-only
+            MinimumProtocolVersion: TLSv1.2_2021
+
+    HttpApi:
+      Type: AWS::ApiGatewayV2::Api
+      Properties: {}
+
+    ApiCloudFrontDistribution:
+      Type: AWS::CloudFront::Distribution
+      DependsOn:
+        - HttpApi
+      Properties:
+        DistributionConfig:
+          Origins:
+            - Id: Api
+              DomainName:
+                !Join [
+                  '',
+                  [!Ref HttpApi, '.execute-api.${aws:region}.amazonaws.com'],
+                ]
+              CustomOriginConfig:
+                OriginProtocolPolicy: https-only
+          Enabled: true
+          Aliases:
+            - api.${self:provider.environment.DOMAIN_NAME}
+          DefaultCacheBehavior:
+            AllowedMethods:
+              - DELETE
+              - GET
+              - HEAD
+              - OPTIONS
+              - PATCH
+              - POST
+              - PUT
+            CachedMethods:
+              - GET
+              - HEAD
+              - OPTIONS
+            TargetOriginId: Api
+            CachePolicyId: 4135ea2d-6df8-44a3-9df3-4b5a84be39ad # CachingDisabled
+            OriginRequestPolicyId: b689b0a8-53d0-40ab-baf2-68738e2966ac # AllViewerExceptHostHeader
+            ViewerProtocolPolicy: redirect-to-https
+          ViewerCertificate:
+            AcmCertificateArn: ${env:ACM_CERTIFICATE_ARN, ssm:/rafaelfranco/acmCertificateArn}
+            SslSupportMethod: sni-only
+            MinimumProtocolVersion: TLSv1.2_2021

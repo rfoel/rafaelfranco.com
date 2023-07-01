@@ -1,0 +1,22 @@
+{
+  "name": "server",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "deploy": "serverless deploy --verbose --stage prod",
+    "start": "./scripts/start.sh",
+    "typecheck": "tsc --noEmit"
+  },
+  "devDependencies": {
+    "@aws-sdk/client-ses": "^3.363.0",
+    "@types/aws-lambda": "^8.10.119",
+    "esbuild": "^0.17.19",
+    "serverless": "^3.33.0",
+    "serverless-cloudfront-invalidate": "^1.12.2",
+    "serverless-esbuild": "^1.45.1",
+    "serverless-offline": "^12.0.4",
+    "serverless-plugin-typescript": "^2.1.5",
+    "serverless-s3-sync": "^3.1.0"
+  }
+}
