@@ -1,3 +1,10 @@
+## [6.1.1](https://github.com/rfoel/rafaelfranco.com/compare/v6.1.0...v6.1.1) (2023-07-02)
+
+
+### Bug Fixes
+
+* create env in the correct subfolder ([e59f875](https://github.com/rfoel/rafaelfranco.com/commit/e59f87522b1eee2a89f8001af61efe0bdaec86d9))
+
 # [6.1.0](https://github.com/rfoel/rafaelfranco.com/compare/v6.0.0...v6.1.0) (2023-07-02)
 
 
