@@ -70,9 +70,7 @@ jobs:
         uses: bahmutov/npm-install@v1
 
       - name: Create env file
-        run: |
-          touch .env
-          echo VITE_HEAP_ID=${{ secrets.VITE_HEAP_ID }} >> .env
+        run: echo VITE_HEAP_ID=${{ secrets.VITE_HEAP_ID }} >> app/.env
 
       - name: 🚀 Production Deploy
         run: npm run deploy
