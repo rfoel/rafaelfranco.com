@@ -1,3 +1,10 @@
+## [6.1.2](https://github.com/rfoel/rafaelfranco.com/compare/v6.1.1...v6.1.2) (2023-07-02)
+
+
+### Bug Fixes
+
+* fix api url ([d284322](https://github.com/rfoel/rafaelfranco.com/commit/d2843228d70b5f13890232f85d9cee07402f2cdf))
+
 ## [6.1.1](https://github.com/rfoel/rafaelfranco.com/compare/v6.1.0...v6.1.1) (2023-07-02)
 
 
