@@ -5,9 +5,10 @@
 
 * {
   box-sizing: content-box;
-  padding: 0;
+  font-family: 'Space Grotesk', sans-serif;
   margin: 0;
   outline-color: #9869ff;
+  padding: 0;
 }
 
 ::selection {
