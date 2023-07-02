@@ -1,3 +1,10 @@
+# [6.1.0](https://github.com/rfoel/rafaelfranco.com/compare/v6.0.0...v6.1.0) (2023-07-02)
+
+
+### Features
+
+* add heap ([927be80](https://github.com/rfoel/rafaelfranco.com/commit/927be806b44056b86dfd01a600d4ee8a6df665d2))
+
 # [6.0.0](https://github.com/rfoel/rafaelfranco.com/compare/v5.4.6...v6.0.0) (2023-07-01)
 
 
